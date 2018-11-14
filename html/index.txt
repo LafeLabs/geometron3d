@@ -1,0 +1,45 @@
+<a href = "editor.php">editor.php</a>
+
+
+<x3d width='600px' height='500px'>
+    <scene>
+        <shape>
+            <appearance>
+                <material diffuseColor='1 0 0'></material>
+            </appearance>
+                <box></box>
+        </shape>
+        <transform translation='3 0 0'> 
+          <shape>
+            <appearance>
+                <material diffuseColor='0 1 0'></material>
+            </appearance>
+                <cone></cone>
+          </shape>
+        </transform>
+        <transform translation='-3 0 0'> 
+          <shape>
+            <appearance>
+                <material diffuseColor='0 0 1'></material>
+            </appearance>
+                <sphere id = "foo"></sphere>
+          </shape>
+        </transform>
+        <transform translation='-6 0 0'> 
+          <shape>
+            <appearance>
+                <material diffuseColor='1 0 1'></material>
+            </appearance>
+                <cylinder></cylinder>
+          </shape>
+        </transform>
+
+    </scene>
+</x3d>
+<script>
+
+document.getElementById("foo").onclick = function(){
+    window.location.href = "editor.php";
+}
+
+</script>
