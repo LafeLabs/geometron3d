@@ -4,7 +4,6 @@
 
 http://edutechwiki.unige.ch/en/X3D_grouping_and_transforms
 
--->
 
 <x3d id = "main">
   <scene>
@@ -37,6 +36,8 @@ http://edutechwiki.unige.ch/en/X3D_grouping_and_transforms
    </transform>
   </scene>
 </x3d>
+-->
+<div id = "x3dbox"></div>
 <script>
 
 /*document.getElementById("foo").onclick = function(){
@@ -44,6 +45,26 @@ http://edutechwiki.unige.ch/en/X3D_grouping_and_transforms
 }*/
 
 unit = 1;
+transformIndex = 0;
+currentx3d = "<x3d id = \"main\">\n  <scene>";
+
+currentGlyph = "0700,0740,0730,0730,0730,0740,0751,0752,0755,0732,0740,";
+
+redraw();
+function redraw(){
+    currentx3d = "<x3d id = \"main\">\n  <scene>";
+    drawGlyph(currentGlyph);
+    currentx3d += "\n</scene>\n</x3d>";
+    document.getElementById("x3dbox").innerHTML = currentx3d;
+}
+
+function drawGlyph(localString){
+    var tempArray = localString.split(',');
+    for(var index = 0;index < tempArray.length;index++){
+        doTheThing(parseInt(tempArray[index],8));
+    }
+}
+
 function doTheThing(localCommand){
     if(localCommand == 0700){
         r = [0,0,0];
@@ -71,25 +92,46 @@ function doTheThing(localCommand){
 
     if(localCommand == 0730){
         r  = [xhat[0] + r[0],xhat[1] + r[1],xhat[2] + r[2]];
+        currentx3d += "\n  <transform translation= '" + xhat[0].toString() + " " + xhat[1].toString() + " " + xhat[2].toString() + "'>";
+        transformIndex++;
     }
     if(localCommand == 0731){
         r  = [-xhat[0] + r[0],-xhat[1] + r[1],-xhat[2] + r[2]];
+        currentx3d += "\n  <transform translation= '" + (-xhat[0]).toString() + " " + (-xhat[1]).toString() + " " + (-xhat[2]).toString() + "'>";
+        transformIndex++;
     }
     if(localCommand == 0732){
         r  = [yhat[0] + r[0],yhat[1] + r[1],yhat[2] + r[2]];
+        currentx3d += "\n  <transform translation= '" + yhat[0].toString() + " " + yhat[1].toString() + " " + yhat[2].toString() + "'>";
+        transformIndex++;
     }
     if(localCommand == 0733){
         r  = [-yhat[0] + r[0],-yhat[1] + r[1],-yhat[2] + r[2]];
+        currentx3d += "\n  <transform translation= '" + (-yhat[0]).toString() + " " + (-yhat[1]).toString() + " " + (-yhat[2]).toString() + "'>";
+        transformIndex++;
     }
     if(localCommand == 0734){
         r  = [zhat[0] + r[0],zhat[1] + r[1],zhat[2] + r[2]];
+        currentx3d += "\n  <transform translation= '" + zhat[0].toString() + " " + zhat[1].toString() + " " + zhat[2].toString() + "'>";
+        transformIndex++;
     }
     if(localCommand == 0735){
         r  = [-zhat[0] + r[0],-zhat[1] + r[1],-zhat[2] + r[2]];
+        currentx3d += "\n  <transform translation= '" + (-zhat[0]).toString() + " " + (-zhat[1]).toString() + " " + (-zhat[2]).toString() + "'>";
+        transformIndex++;
     }
     
     if(localCommand == 0740){
         //box
+        currentx3d += "\n<shape>";
+        currentx3d += "\n<appearance>";
+        currentx3d += "\n<material diffuseColor='1 0 0'></material>";
+        currentx3d += "\n</appearance>";
+        currentx3d += "\n<box size = '";
+        currentx3d += xhat[0].toString() + " " + yhat[1].toString() + " " + zhat[2].toString();
+        currentx3d += "'></box>";
+        currentx3d += "\n</shape>";
+    
     }
     if(localCommand == 0741){
         //ball
@@ -105,19 +147,19 @@ function doTheThing(localCommand){
         xhat = [scaleFactor*xhat[0],scaleFactor*xhat[1],scaleFactor*xhat[2]];
     }
     if(localCommand == 0751){
-        xhat = [xhat[0]/scaleFactor,xhat[1]/scaleFactor,scaleFactor*xhat[2]/scaleFactor];
+        xhat = [xhat[0]/scaleFactor,xhat[1]/scaleFactor,xhat[2]/scaleFactor];
     }
     if(localCommand == 0752){
         yhat = [scaleFactor*yhat[0],scaleFactor*yhat[1],scaleFactor*yhat[2]];
     }
     if(localCommand == 0753){
-        yhat = [yhat[0]/scaleFactor,yhat[1]/scaleFactor,scaleFactor*yhat[2]/scaleFactor];
+        yhat = [yhat[0]/scaleFactor,yhat[1]/scaleFactor,yhat[2]/scaleFactor];
     }
     if(localCommand == 0754){
         zhat = [scaleFactor*zhat[0],scaleFactor*zhat[1],scaleFactor*zhat[2]];
     }
     if(localCommand == 0755){
-        zhat = [zhat[0]/scaleFactor,zhat[1]/scaleFactor,scaleFactor*zhat[2]/scaleFactor];
+        zhat = [zhat[0]/scaleFactor,zhat[1]/scaleFactor,zhat[2]/scaleFactor];
     }
     
 }
@@ -129,6 +171,14 @@ function doTheThing(localCommand){
     left:0px;
     right:0px;
     bottom:0px;
+    top:0px;
+}
+#x3dbox{
+    position:absolute;
+    left:0px;
+    right:0px;
+    bottom:0px;
     top:110px;
+    
 }
 </style>
