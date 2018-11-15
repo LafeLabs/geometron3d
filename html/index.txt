@@ -18,7 +18,7 @@ unit = 1;
 transformIndex = 0;
 currentx3d = "<x3d id = \"main\">\n  <scene>";
 
-currentGlyph = "0700,0740,0730,0730,0730,0740,0751,0752,0755,0732,0740,";
+currentGlyph = "0700,0721,0742,0730,0730,0730,0724,0743,0751,0752,0755,0732,0727,0741,";
 
 redraw();
 function redraw(){
@@ -44,6 +44,8 @@ function doTheThing(localCommand){
         zhat = [0,0,unit];
         scaleFactor = 2;
         thetaStep = Math.PI;
+        solidColor = "1 1 1";
+        
     }
     if(localCommand == 0710){
         scaleFactor = 2;
@@ -60,6 +62,32 @@ function doTheThing(localCommand){
     if(localCommand == 0714){
         scaleFactor = 1.0625;//  17/16
     }
+
+    if(localCommand == 0720){
+        solidColor = "1 1 1";
+    }
+    if(localCommand == 0721){
+        solidColor = "1 0 0";
+    }
+    if(localCommand == 0722){
+        solidColor = "0 1 0";
+    }
+    if(localCommand == 0723){
+        solidColor = "0 0 1";
+    }
+    if(localCommand == 0724){
+        solidColor = "0 1 1";
+    }
+    if(localCommand == 0725){
+        solidColor = "1 1 0";
+    }
+    if(localCommand == 0726){
+        solidColor = "1 0 1";
+    }
+    if(localCommand == 0727){
+        solidColor = "0.5 0.5 0.5";
+    }
+
 
     if(localCommand == 0730){
         r  = [xhat[0] + r[0],xhat[1] + r[1],xhat[2] + r[2]];
@@ -96,7 +124,7 @@ function doTheThing(localCommand){
         //box
         currentx3d += "\n<shape>";
         currentx3d += "\n<appearance>";
-        currentx3d += "\n<material diffuseColor='1 0 0'></material>";
+        currentx3d += "\n<material diffuseColor='" + solidColor + "'></material>";
         currentx3d += "\n</appearance>";
         currentx3d += "\n<box size = '";
         currentx3d += xhat[0].toString() + " " + yhat[1].toString() + " " + zhat[2].toString();
@@ -105,13 +133,35 @@ function doTheThing(localCommand){
     
     }
     if(localCommand == 0741){
-        //ball
+        currentx3d += "\n<shape>";
+        currentx3d += "\n<appearance>";
+        currentx3d += "\n<material diffuseColor='" + solidColor + "'></material>";
+        currentx3d += "\n</appearance>";
+        currentx3d += "\n<sphere size = '";
+        currentx3d += xhat[0].toString() + " " + yhat[1].toString() + " " + zhat[2].toString();
+        currentx3d += "'></sphere>";
+        currentx3d += "\n</shape>";
     }
     if(localCommand == 0742){
-        //cylinder
+        currentx3d += "\n<shape>";
+        currentx3d += "\n<appearance>";
+        currentx3d += "\n<material diffuseColor='" + solidColor + "'></material>";
+        currentx3d += "\n</appearance>";
+        currentx3d += "\n<cylinder size = '";
+        currentx3d += xhat[0].toString() + " " + yhat[1].toString() + " " + zhat[2].toString();
+        currentx3d += "'></cylinder>";
+        currentx3d += "\n</shape>";
     }
     if(localCommand == 0743){
-        //cone
+        currentx3d += "\n<shape>";
+        currentx3d += "\n<appearance>";
+        currentx3d += "\n<material diffuseColor='" + solidColor + "'></material>";
+        currentx3d += "\n</appearance>";
+        currentx3d += "\n<cone size = '";
+        currentx3d += xhat[0].toString() + " " + yhat[1].toString() + " " + zhat[2].toString();
+        currentx3d += "'></cone>";
+        currentx3d += "\n</shape>";
+            
     }
     
     if(localCommand == 0750){
