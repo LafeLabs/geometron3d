@@ -1,5 +1,10 @@
 <a href = "editor.php">editor.php</a>
 
+<!--
+
+http://edutechwiki.unige.ch/en/X3D_grouping_and_transforms
+
+-->
 
 <x3d id = "main">
   <scene>
@@ -19,7 +24,7 @@
         </appearance>
         <box></box>
         </shape>
-        <transform translation='3 0 0'> 
+        <transform translation='3 0 0' scale = '1 0.25 1'> 
           <shape>
           <appearance>
           <material diffuseColor='0 0 1'></material>
