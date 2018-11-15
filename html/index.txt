@@ -1,44 +1,14 @@
 <a href = "editor.php">editor.php</a>
 
-<!--
 
-http://edutechwiki.unige.ch/en/X3D_grouping_and_transforms
-
-
+<div id = "x3dbox">
+    
 <x3d id = "main">
-  <scene>
-   <transform rotation = '1 0 0 0.75'> 
-
-    <transform rotation = '0 1 0 0.75' translation='-3 0 0'> 
-      <shape>
-      <appearance>
-      <material diffuseColor='0 1 0'></material>
-      </appearance>
-      <cone></cone>
-      </shape>
-      <transform translation='3 0 0'> 
-        <shape>
-        <appearance>
-        <material diffuseColor='1 0 0'></material>
-        </appearance>
-        <box></box>
-        </shape>
-        <transform translation='3 0 0' scale = '1 0.25 1'> 
-          <shape>
-          <appearance>
-          <material diffuseColor='0 0 1'></material>
-          </appearance>
-          <sphere id = "foo"></sphere>
-          </shape>
-        </transform>
-      </transform>
-    </transform>
-   </transform>
-  </scene>
 </x3d>
--->
-<div id = "x3dbox"></div>
+    
+</div>
 <script>
+//http://edutechwiki.unige.ch/en/X3D_grouping_and_transforms
 
 /*document.getElementById("foo").onclick = function(){
     window.location.href = "editor.php";
@@ -52,6 +22,7 @@ currentGlyph = "0700,0740,0730,0730,0730,0740,0751,0752,0755,0732,0740,";
 
 redraw();
 function redraw(){
+    document.getElementById("x3dbox").innerHTML = "";
     currentx3d = "<x3d id = \"main\">\n  <scene>";
     drawGlyph(currentGlyph);
     currentx3d += "\n</scene>\n</x3d>";
