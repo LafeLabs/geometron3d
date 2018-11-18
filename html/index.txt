@@ -96,7 +96,6 @@ function doTheThing(localCommand){
 
     if(localCommand == 0730){
         r  = [xhat[0] + r[0],xhat[1] + r[1],xhat[2] + r[2]];
-        currentx3d += "\n  <transform translation= '" + xhat[0].toString() + " " + xhat[1].toString() + " " + xhat[2].toString() + "'>";
         var newt = document.createElement("transform");
         newt.setAttribute("translation", xhat[0].toString() + " " + xhat[1].toString() + " " + xhat[2].toString() );
         if(transformIndex > 0){
@@ -111,7 +110,6 @@ function doTheThing(localCommand){
     }
     if(localCommand == 0731){
         r  = [-xhat[0] + r[0],-xhat[1] + r[1],-xhat[2] + r[2]];
-        currentx3d += "\n  <transform translation= '" + (-xhat[0]).toString() + " " + (-xhat[1]).toString() + " " + (-xhat[2]).toString() + "'>";
         var newt = document.createElement("transform");
         newt.setAttribute("translation",(-xhat[0]).toString() + " " + (-xhat[1]).toString() + " " + (-xhat[2]).toString() );
         if(transformIndex > 0){
@@ -126,8 +124,6 @@ function doTheThing(localCommand){
     }
     if(localCommand == 0732){
         r  = [yhat[0] + r[0],yhat[1] + r[1],yhat[2] + r[2]];
-        currentx3d += "\n  <transform translation= '" + yhat[0].toString() + " " + yhat[1].toString() + " " + yhat[2].toString() + "'>";
-        
         var newt = document.createElement("transform");
         newt.setAttribute("translation",yhat[0].toString() + " " + yhat[1].toString() + " " + yhat[2].toString() );
         if(transformIndex > 0){
@@ -137,12 +133,10 @@ function doTheThing(localCommand){
             document.getElementById("main").appendChild(newt);
         }
         transforms.push(newt);
-
         transformIndex++;
     }
     if(localCommand == 0733){
         r  = [-yhat[0] + r[0],-yhat[1] + r[1],-yhat[2] + r[2]];
-        currentx3d += "\n  <transform translation= '" + (-yhat[0]).toString() + " " + (-yhat[1]).toString() + " " + (-yhat[2]).toString() + "'>";
         var newt = document.createElement("transform");
         newt.setAttribute("translation",(-yhat[0]).toString() + " " + (-yhat[1]).toString() + " " + (-yhat[2]).toString() );
         if(transformIndex > 0){
@@ -156,7 +150,6 @@ function doTheThing(localCommand){
     }
     if(localCommand == 0734){
         r  = [zhat[0] + r[0],zhat[1] + r[1],zhat[2] + r[2]];
-        currentx3d += "\n  <transform translation= '" + zhat[0].toString() + " " + zhat[1].toString() + " " + zhat[2].toString() + "'>";
         var newt = document.createElement("transform");
         newt.setAttribute("translation",zhat[0].toString() + " " + zhat[1].toString() + " " + zhat[2].toString() );
         if(transformIndex > 0){
@@ -170,7 +163,6 @@ function doTheThing(localCommand){
     }
     if(localCommand == 0735){
         r  = [-zhat[0] + r[0],-zhat[1] + r[1],-zhat[2] + r[2]];
-        currentx3d += "\n  <transform translation= '" + (-zhat[0]).toString() + " " + (-zhat[1]).toString() + " " + (-zhat[2]).toString() + "'>";
         var newt = document.createElement("transform");
         newt.setAttribute("translation",(-zhat[0]).toString() + " " + (-zhat[1]).toString() + " " + (-zhat[2]).toString());
         if(transformIndex > 0){
@@ -185,14 +177,6 @@ function doTheThing(localCommand){
     
     if(localCommand == 0740){
         //box
-        currentx3d += "\n<shape>";
-        currentx3d += "\n<appearance>";
-        currentx3d += "\n<material diffuseColor='" + solidColor + "'></material>";
-        currentx3d += "\n</appearance>";
-        currentx3d += "\n<box size = '";
-        currentx3d += xhat[0].toString() + " " + yhat[1].toString() + " " + zhat[2].toString();
-        currentx3d += "'></box>";
-        currentx3d += "\n</shape>";
         var news = document.createElement("shape");
         if(transformIndex > 0){
             transforms[transformIndex - 1].appendChild(news);
@@ -212,38 +196,60 @@ function doTheThing(localCommand){
     }
     if(localCommand == 0741){
         
-        currentx3d += "\n<shape>";
-        currentx3d += "\n<appearance>";
-        currentx3d += "\n<material diffuseColor='" + solidColor + "'></material>";
-        currentx3d += "\n</appearance>";
-        currentx3d += "\n<sphere size = '";
-        currentx3d += xhat[0].toString() + " " + yhat[1].toString() + " " + zhat[2].toString();
-        currentx3d += "'></sphere>";
-        currentx3d += "\n</shape>";
+        //sphere
+        var news = document.createElement("shape");
+        if(transformIndex > 0){
+            transforms[transformIndex - 1].appendChild(news);
+        }
+        else{
+            main.appendChild(news);
+        }
+        var newa = document.createElement("appearance");
+        news.appendChild(newa);
+        var newm = document.createElement("material");
+        newm.setAttribute("diffuseColor",solidColor);
+        newa.appendChild(newm);
+        var newb = document.createElement("sphere");
+        news.appendChild(newb);
+        newb.setAttribute("size",(1.0*xhat[0]).toString() + " " + (1.0*yhat[1]).toString() + " " + (1.0*zhat[2]).toString());
         
     }
     if(localCommand == 0742){
-        
-        currentx3d += "\n<shape>";
-        currentx3d += "\n<appearance>";
-        currentx3d += "\n<material diffuseColor='" + solidColor + "'></material>";
-        currentx3d += "\n</appearance>";
-        currentx3d += "\n<cylinder size = '";
-        currentx3d += xhat[0].toString() + " " + yhat[1].toString() + " " + zhat[2].toString();
-        currentx3d += "'></cylinder>";
-        currentx3d += "\n</shape>";
-        
+        //cylinder
+        var news = document.createElement("shape");
+        if(transformIndex > 0){
+            transforms[transformIndex - 1].appendChild(news);
+        }
+        else{
+            main.appendChild(news);
+        }
+        var newa = document.createElement("appearance");
+        news.appendChild(newa);
+        var newm = document.createElement("material");
+        newm.setAttribute("diffuseColor",solidColor);
+        newa.appendChild(newm);
+        var newb = document.createElement("cylinder");
+        news.appendChild(newb);
+        newb.setAttribute("size",(1.0*xhat[0]).toString() + " " + (1.0*yhat[1]).toString() + " " + (1.0*zhat[2]).toString());
     }
     if(localCommand == 0743){
         
-        currentx3d += "\n<shape>";
-        currentx3d += "\n<appearance>";
-        currentx3d += "\n<material diffuseColor='" + solidColor + "'></material>";
-        currentx3d += "\n</appearance>";
-        currentx3d += "\n<cone size = '";
-        currentx3d += xhat[0].toString() + " " + yhat[1].toString() + " " + zhat[2].toString();
-        currentx3d += "'></cone>";
-        currentx3d += "\n</shape>";
+        //cone
+        var news = document.createElement("shape");
+        if(transformIndex > 0){
+            transforms[transformIndex - 1].appendChild(news);
+        }
+        else{
+            main.appendChild(news);
+        }
+        var newa = document.createElement("appearance");
+        news.appendChild(newa);
+        var newm = document.createElement("material");
+        newm.setAttribute("diffuseColor",solidColor);
+        newa.appendChild(newm);
+        var newb = document.createElement("cone");
+        news.appendChild(newb);
+        newb.setAttribute("size",(1.0*xhat[0]).toString() + " " + (1.0*yhat[1]).toString() + " " + (1.0*zhat[2]).toString());
             
     }
     
