@@ -21,7 +21,7 @@ unit = 1;
 transformIndex = 0;
 
 //currentGlyph = "0700,0721,0742,0730,0730,0730,0724,0743,0751,0752,0755,0732,0727,0741,";
-currentGlyph = "0721,0740,0730,0730,0730,0740,0732,0732,0732,";
+currentGlyph = "0721,0740,0730,0730,0730,0740,0732,0732,0732,0751,0753,0755,";
 main = document.getElementById("main");
 
 
@@ -32,6 +32,27 @@ function redraw(){
     transforms = [];
     doTheThing(0700);
     drawGlyph(currentGlyph);
+    
+    var news = document.createElement("shape");
+    var newt = document.createElement("transform");
+    newt.setAttribute("translation",r[0].toString() + " " + r[1].toString() + " " + r[2].toString() );
+        if(transformIndex > 0){
+            transforms[transformIndex - 1].appendChild(newt);
+        }
+        
+    main.appendChild(newt);
+    newt.appendChild(news);
+    var newa = document.createElement("appearance");
+    news.appendChild(newa);
+    var newm = document.createElement("material");
+    newm.setAttribute("diffuseColor",solidColor);
+    newm.setAttribute("transparency","0.85");
+    newa.appendChild(newm);
+    var newb = document.createElement("box");
+    news.appendChild(newb);
+    newb.setAttribute("size",(1.0*xhat[0]).toString() + " " + (1.0*yhat[1]).toString() + " " + (1.0*zhat[2]).toString());
+
+
 }
 
 function drawGlyph(localString){
@@ -42,6 +63,10 @@ function drawGlyph(localString){
 }
 
 function doTheThing(localCommand){
+    if(localCommand == 011){//delete most recent transform
+        transforms[transformIndex-2].removeChild(transforms[transformIndex-1]);
+        transformIndex--;
+    }
     if(localCommand == 0700){
         r = [0,0,0];
         xhat = [unit,0,0];
