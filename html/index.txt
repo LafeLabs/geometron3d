@@ -25,7 +25,7 @@ xhat = [unit,0,0];
 yhat = [0,unit,0];
 zhat = [0,0,unit];
 solidColor = "1 0 0";
-scaleFactor = 2;
+scale3d = 2;
 thetaStep = Math.PI;
 
 transformIndex = 0;
@@ -41,10 +41,14 @@ currentTable[0146] = "0733";//f
 currentTable[0147] = "0734";//g
 currentTable[0150] = "0735";//h
 
-currentTable[0172] = "0740";//h
-currentTable[0170] = "0741";//h
-currentTable[0143] = "0742";//h
-currentTable[0166] = "0743";//h
+currentTable[0152] = "0736";//j
+currentTable[0153] = "0737";//k
+
+
+currentTable[0172] = "0740";//z
+currentTable[0170] = "0741";//x
+currentTable[0143] = "0742";//c
+currentTable[0166] = "0743";//v
 
 
 currentTable[061] = "0720";//h
@@ -55,22 +59,30 @@ currentTable[065] = "0724";//h
 currentTable[066] = "0725";//h
 currentTable[067] = "0726";//h
 
-//currentGlyph = "0700,0721,0742,0730,0730,0730,0724,0743,0751,0752,0755,0732,0727,0741,";
-currentGlyph = "0721,0740,0730,0730,0730,0740,0732,0732,0732,";
+//currentGlyph = "0740,0730,0736,0740,";
+currentGlyph = "";
 main = document.getElementById("main");
+currentx3d = "";
+transformIndex = 0;
+transforms = [];
+doTheThing(0700);
+drawGlyph(currentGlyph);
+initcursor();
 
-redraw();
-init();
-
+//redraw();
+    
 function redraw(){
-    currentx3d = "";
     transformIndex = 0;
     transforms = [];
+    main.innerHTML = "";
     doTheThing(0700);
+    
     drawGlyph(currentGlyph);
+    initcursor();
+    cursort.setAttribute("translation",r[0].toString() + " " + r[1].toString() + " " + r[2].toString() );
 }
 
-function init(){
+function initcursor(){
     var news = document.createElement("shape");
     var newt = document.createElement("transform");
     newt.id = "cursort";
@@ -97,38 +109,35 @@ function drawGlyph(localString){
     var tempArray = localString.split(',');
     for(var index = 0;index < tempArray.length;index++){
         doTheThing(parseInt(tempArray[index],8));
+        console.log(xhat[0]);
     }
 }
 
 function doTheThing(localCommand){
-    if(localCommand == 011){//delete most recent transform
-        transforms[transformIndex-2].removeChild(transforms[transformIndex-1]);
-        transformIndex--;
-    }
+    
     if(localCommand == 0700){
         r = [0,0,0];
         xhat = [unit,0,0];
         yhat = [0,unit,0];
         zhat = [0,0,unit];
-        scaleFactor = 2;
-        thetaStep = Math.PI;
+        scale3d = 2;
         solidColor = "1 0 0";
         
     }
     if(localCommand == 0710){
-        scaleFactor = 2;
+        scale3d = 2;
     }
     if(localCommand == 0711){
-        scaleFactor = 1.5;//     3/2
+        scale3d = 1.5;//     3/2
     }
     if(localCommand == 0712){
-        scaleFactor = 1.25;//    5/4
+        scale3d = 1.25;//    5/4
     }
     if(localCommand == 0713){
-        scaleFactor = 1.125;//   9/8
+        scale3d = 1.125;//   9/8
     }
     if(localCommand == 0714){
-        scaleFactor = 1.0625;//  17/16
+        scale3d = 1.0625;//  17/16
     }
 
     if(localCommand == 0720){
@@ -159,6 +168,7 @@ function doTheThing(localCommand){
 
     if(localCommand == 0730){
         r  = [xhat[0] + r[0],xhat[1] + r[1],xhat[2] + r[2]];
+
         var newt = document.createElement("transform");
         newt.setAttribute("translation", xhat[0].toString() + " " + xhat[1].toString() + " " + xhat[2].toString() );
         if(transformIndex > 0){
@@ -237,6 +247,43 @@ function doTheThing(localCommand){
         transforms.push(newt);
         transformIndex++;
     }
+    if(localCommand == 0736){
+         xhat = [xhat[0]/scale3d,xhat[1]/scale3d,xhat[2]/scale3d];
+         yhat = [yhat[0]/scale3d,yhat[1]/scale3d,yhat[2]/scale3d];
+         zhat = [zhat[0]/scale3d,zhat[1]/scale3d,zhat[2]/scale3d];
+
+        var newt = document.createElement("transform");
+        newt.setAttribute("scale", (1/scale3d).toString() + " " + (1/scale3d).toString() + " " + (1/scale3d).toString() );
+        if(transformIndex > 0){
+            transforms[transformIndex - 1].appendChild(newt);
+        }
+        else{
+            document.getElementById("main").appendChild(newt);
+        }
+        transforms.push(newt);
+        
+        transformIndex++;
+
+    }
+    if(localCommand == 0737){
+         xhat = [xhat[0]*scale3d,xhat[1]*scale3d,xhat[2]*scale3d];
+         yhat = [yhat[0]*scale3d,yhat[1]*scale3d,yhat[2]*scale3d];
+         zhat = [zhat[0]*scale3d,zhat[1]*scale3d,zhat[2]*scale3d];
+
+        var newt = document.createElement("transform");
+        newt.setAttribute("scale", scale3d.toString() + " " + scale3d.toString() + " " + scale3d.toString() );
+        if(transformIndex > 0){
+            transforms[transformIndex - 1].appendChild(newt);
+        }
+        else{
+            document.getElementById("main").appendChild(newt);
+        }
+        transforms.push(newt);
+        
+        transformIndex++;
+
+    }
+    
     
     if(localCommand == 0740){
         //box
@@ -254,7 +301,7 @@ function doTheThing(localCommand){
         newa.appendChild(newm);
         var newb = document.createElement("box");
         news.appendChild(newb);
-        newb.setAttribute("size",(1.0*xhat[0]).toString() + " " + (1.0*yhat[1]).toString() + " " + (1.0*zhat[2]).toString());
+//        newb.setAttribute("size",(1.0*xhat[0]).toString() + " " + (1.0*yhat[1]).toString() + " " + (1.0*zhat[2]).toString());
         
     }
     if(localCommand == 0741){
@@ -274,7 +321,7 @@ function doTheThing(localCommand){
         newa.appendChild(newm);
         var newb = document.createElement("sphere");
         news.appendChild(newb);
-        newb.setAttribute("size",(1.0*xhat[0]).toString() + " " + (1.0*yhat[1]).toString() + " " + (1.0*zhat[2]).toString());
+       // newb.setAttribute("size",(1.0*xhat[0]).toString() + " " + (1.0*yhat[1]).toString() + " " + (1.0*zhat[2]).toString());
         
     }
     if(localCommand == 0742){
@@ -293,7 +340,7 @@ function doTheThing(localCommand){
         newa.appendChild(newm);
         var newb = document.createElement("cylinder");
         news.appendChild(newb);
-        newb.setAttribute("size",(1.0*xhat[0]).toString() + " " + (1.0*yhat[1]).toString() + " " + (1.0*zhat[2]).toString());
+       // newb.setAttribute("size",(1.0*xhat[0]).toString() + " " + (1.0*yhat[1]).toString() + " " + (1.0*zhat[2]).toString());
     }
     if(localCommand == 0743){
         
@@ -312,49 +359,36 @@ function doTheThing(localCommand){
         newa.appendChild(newm);
         var newb = document.createElement("cone");
         news.appendChild(newb);
-        newb.setAttribute("size",(1.0*xhat[0]).toString() + " " + (1.0*yhat[1]).toString() + " " + (1.0*zhat[2]).toString());
+        //newb.setAttribute("size",(1.0*xhat[0]).toString() + " " + (1.0*yhat[1]).toString() + " " + (1.0*zhat[2]).toString());
             
     }
     
-    if(localCommand == 0750){
-        xhat = [scaleFactor*xhat[0],scaleFactor*xhat[1],scaleFactor*xhat[2]];
-    }
-    if(localCommand == 0751){
-        xhat = [xhat[0]/scaleFactor,xhat[1]/scaleFactor,xhat[2]/scaleFactor];
-    }
-    if(localCommand == 0752){
-        yhat = [scaleFactor*yhat[0],scaleFactor*yhat[1],scaleFactor*yhat[2]];
-    }
-    if(localCommand == 0753){
-        yhat = [yhat[0]/scaleFactor,yhat[1]/scaleFactor,yhat[2]/scaleFactor];
-    }
-    if(localCommand == 0754){
-        zhat = [scaleFactor*zhat[0],scaleFactor*zhat[1],scaleFactor*zhat[2]];
-    }
-    if(localCommand == 0755){
-        zhat = [zhat[0]/scaleFactor,zhat[1]/scaleFactor,zhat[2]/scaleFactor];
-    }
+    
+    
     
 }
+
 
 document.getElementById("actioninput").onkeyup = function(e){
     charCode = e.keyCode || e.which;
     if(charCode == 010){
-        doTheThing(011);
-        cursort.setAttribute("translation",r[0].toString() + " " + r[1].toString() + " " + r[2].toString() );
+
     }
     
+    
 }
+
 document.getElementById("actioninput").onkeypress = function(a){//action
     charCode = a.keyCode || a.which;
     //console.log(a.which.toString(8));
     if(charCode != 010){
         if(parseInt(currentTable[charCode],8) >= 0700){
-            doTheThing(parseInt(currentTable[charCode],8));
+            currentGlyph +=  currentTable[charCode] + ",";
         } 
         this.value = "";
+        redraw();
     }
-    cursort.setAttribute("translation",r[0].toString() + " " + r[1].toString() + " " + r[2].toString() );
+
 }
 
 
@@ -369,10 +403,10 @@ document.getElementById("actioninput").onkeypress = function(a){//action
 }
 #x3dbox{
     position:absolute;
-    left:0px;
-    right:0px;
+    left:100px;
+    right:100px;
     top:40px;
-    bottom:0px;
+    bottom:100px;
 }
 #actioninput{
     position:absolute;
