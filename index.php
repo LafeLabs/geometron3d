@@ -58,10 +58,10 @@ echo file_get_contents("bytecode/font.txt")."\n";
 echo file_get_contents("bytecode/keyboard.txt")."\n";
 echo file_get_contents("bytecode/symbols013xx.txt")."\n";
 echo file_get_contents("bytecode/symbols010xx.txt")."\n";
-
 echo file_get_contents("bytecode/symbols017xx.txt")."\n";
 echo file_get_contents("bytecode/symbols016xx.txt")."\n";
-echo file_get_contents("bytecode/symbols06xx.txt")."\n";
+
+echo file_get_contents("bytecode/shapes06xx.txt")."\n";
 
 
 if(isset($_GET['path'])){
@@ -87,6 +87,12 @@ function doTheThing(localCommand){
             drawGlyph(currentTable[localCommand]);    	    
         }
     }
+    if(localCommand >= 0600 && localCommand <= 0677){//shapes 
+        if(!(localCommand == 0207 && editMode == false) ){
+            drawGlyph(currentTable[localCommand]);    	    
+        }
+    }
+
     if(localCommand >= 01000 && localCommand <= 01777){//symbol glyphs
             drawGlyph(currentTable[localCommand]);    	    
     } 

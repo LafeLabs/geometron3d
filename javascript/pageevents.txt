@@ -18,7 +18,7 @@ document.getElementById("actioninput").onkeyup = function(e){
 document.getElementById("actioninput").onkeypress = function(a){//action
     charCode = a.keyCode || a.which;
     if(charCode != 010){
-        if(parseInt(currentTable[charCode],8) >= 0700){
+        if(parseInt(currentTable[charCode],8) >= 0600){
             currentGlyph +=  currentTable[charCode] + ",";
         } 
         this.value = "";
