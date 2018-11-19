@@ -34,32 +34,31 @@ for(var index = 0;index < 01777;index ++){
     currentTable.push("");
 }
 
-currentTable[0141] = "0730";//a
-currentTable[0163] = "0731";//s
-currentTable[0144] = "0732";//d
-currentTable[0146] = "0733";//f
+currentTable[0141] = "0731";//a
+currentTable[0163] = "0730";//s
+currentTable[0144] = "0733";//d
+currentTable[0146] = "0732";//f
 currentTable[0147] = "0734";//g
 currentTable[0150] = "0735";//h
 
 currentTable[0152] = "0736";//j
 currentTable[0153] = "0737";//k
 
-
 currentTable[0172] = "0740";//z
 currentTable[0170] = "0741";//x
 currentTable[0143] = "0742";//c
 currentTable[0166] = "0743";//v
 
-
-currentTable[061] = "0720";//h
-currentTable[062] = "0721";//h
-currentTable[063] = "0722";//h
-currentTable[064] = "0723";//h
-currentTable[065] = "0724";//h
-currentTable[066] = "0725";//h
-currentTable[067] = "0726";//h
+currentTable[061] = "0720";//1
+currentTable[062] = "0721";//2
+currentTable[063] = "0722";//3
+currentTable[064] = "0723";//4
+currentTable[065] = "0724";//5
+currentTable[066] = "0725";//6
+currentTable[067] = "0726";//7
 
 //currentGlyph = "0740,0730,0736,0740,";
+
 currentGlyph = "";
 main = document.getElementById("main");
 currentx3d = "";
@@ -76,23 +75,24 @@ function redraw(){
     transforms = [];
     main.innerHTML = "";
     doTheThing(0700);
-    
     drawGlyph(currentGlyph);
+
+//  cursort.setAttribute("translation",r[0].toString() + " " + r[1].toString() + " " + r[2].toString() );
+    
     initcursor();
-    cursort.setAttribute("translation",r[0].toString() + " " + r[1].toString() + " " + r[2].toString() );
+
 }
 
 function initcursor(){
     var news = document.createElement("shape");
     var newt = document.createElement("transform");
-    newt.id = "cursort";
-    newt.setAttribute("translation",r[0].toString() + " " + r[1].toString() + " " + r[2].toString() );
-        if(transformIndex > 0){
-            transforms[transformIndex - 1].appendChild(newt);
-        }
-        
     main.appendChild(newt);
-    newt.appendChild(news);
+    newt.setAttribute("translation",r[0].toString() + " " + r[1].toString() + " " + r[2].toString() );
+    var newt2 = document.createElement("transform");
+    newt.appendChild(newt2);
+    newt2.setAttribute("scale",(0.5*xhat[0]).toString() + " " + (0.5*yhat[1]).toString() + " " + (0.5*zhat[2]).toString());
+    newt2.appendChild(news);
+
     var newa = document.createElement("appearance");
     news.appendChild(newa);
     var newm = document.createElement("material");
@@ -101,15 +101,14 @@ function initcursor(){
     newa.appendChild(newm);
     var newb = document.createElement("box");
     news.appendChild(newb);
-    newb.setAttribute("size",(1.0*xhat[0]).toString() + " " + (1.0*yhat[1]).toString() + " " + (1.0*zhat[2]).toString());
-    cursort = document.getElementById("cursort");
+
+    
 }
 
 function drawGlyph(localString){
     var tempArray = localString.split(',');
     for(var index = 0;index < tempArray.length;index++){
         doTheThing(parseInt(tempArray[index],8));
-        console.log(xhat[0]);
     }
 }
 
@@ -287,13 +286,16 @@ function doTheThing(localCommand){
     
     if(localCommand == 0740){
         //box
+      
         var news = document.createElement("shape");
-        if(transformIndex > 0){
-            transforms[transformIndex - 1].appendChild(news);
-        }
-        else{
-            main.appendChild(news);
-        }
+        var newt = document.createElement("transform");
+        main.appendChild(newt);
+        newt.setAttribute("translation",r[0].toString() + " " + r[1].toString() + " " + r[2].toString() );
+        var newt2 = document.createElement("transform");
+        newt.appendChild(newt2);
+        newt2.setAttribute("scale",(0.5*xhat[0]).toString() + " " + (0.5*yhat[1]).toString() + " " + (0.5*zhat[2]).toString());
+        newt2.appendChild(news);
+
         var newa = document.createElement("appearance");
         news.appendChild(newa);
         var newm = document.createElement("material");
@@ -301,19 +303,21 @@ function doTheThing(localCommand){
         newa.appendChild(newm);
         var newb = document.createElement("box");
         news.appendChild(newb);
-//        newb.setAttribute("size",(1.0*xhat[0]).toString() + " " + (1.0*yhat[1]).toString() + " " + (1.0*zhat[2]).toString());
         
     }
     if(localCommand == 0741){
         
         //sphere
+      
         var news = document.createElement("shape");
-        if(transformIndex > 0){
-            transforms[transformIndex - 1].appendChild(news);
-        }
-        else{
-            main.appendChild(news);
-        }
+        var newt = document.createElement("transform");
+        main.appendChild(newt);
+        newt.setAttribute("translation",r[0].toString() + " " + r[1].toString() + " " + r[2].toString() );
+        var newt2 = document.createElement("transform");
+        newt.appendChild(newt2);
+        newt2.setAttribute("scale",(0.5*xhat[0]).toString() + " " + (0.5*yhat[1]).toString() + " " + (0.5*zhat[2]).toString());
+        newt2.appendChild(news);
+
         var newa = document.createElement("appearance");
         news.appendChild(newa);
         var newm = document.createElement("material");
@@ -321,18 +325,18 @@ function doTheThing(localCommand){
         newa.appendChild(newm);
         var newb = document.createElement("sphere");
         news.appendChild(newb);
-       // newb.setAttribute("size",(1.0*xhat[0]).toString() + " " + (1.0*yhat[1]).toString() + " " + (1.0*zhat[2]).toString());
-        
     }
     if(localCommand == 0742){
         //cylinder
         var news = document.createElement("shape");
-        if(transformIndex > 0){
-            transforms[transformIndex - 1].appendChild(news);
-        }
-        else{
-            main.appendChild(news);
-        }
+        var newt = document.createElement("transform");
+        main.appendChild(newt);
+        newt.setAttribute("translation",r[0].toString() + " " + r[1].toString() + " " + r[2].toString() );
+        var newt2 = document.createElement("transform");
+        newt.appendChild(newt2);
+        newt2.setAttribute("scale",(0.5*xhat[0]).toString() + " " + (0.5*yhat[1]).toString() + " " + (0.5*zhat[2]).toString());
+        newt2.appendChild(news);
+
         var newa = document.createElement("appearance");
         news.appendChild(newa);
         var newm = document.createElement("material");
@@ -340,18 +344,19 @@ function doTheThing(localCommand){
         newa.appendChild(newm);
         var newb = document.createElement("cylinder");
         news.appendChild(newb);
-       // newb.setAttribute("size",(1.0*xhat[0]).toString() + " " + (1.0*yhat[1]).toString() + " " + (1.0*zhat[2]).toString());
     }
     if(localCommand == 0743){
         
         //cone
         var news = document.createElement("shape");
-        if(transformIndex > 0){
-            transforms[transformIndex - 1].appendChild(news);
-        }
-        else{
-            main.appendChild(news);
-        }
+        var newt = document.createElement("transform");
+        main.appendChild(newt);
+        newt.setAttribute("translation",r[0].toString() + " " + r[1].toString() + " " + r[2].toString() );
+        var newt2 = document.createElement("transform");
+        newt.appendChild(newt2);
+        newt2.setAttribute("scale",(0.5*xhat[0]).toString() + " " + (0.5*yhat[1]).toString() + " " + (0.5*zhat[2]).toString());
+        newt2.appendChild(news);
+
         var newa = document.createElement("appearance");
         news.appendChild(newa);
         var newm = document.createElement("material");
@@ -359,8 +364,7 @@ function doTheThing(localCommand){
         newa.appendChild(newm);
         var newb = document.createElement("cone");
         news.appendChild(newb);
-        //newb.setAttribute("size",(1.0*xhat[0]).toString() + " " + (1.0*yhat[1]).toString() + " " + (1.0*zhat[2]).toString());
-            
+        
     }
     
     
@@ -372,7 +376,14 @@ function doTheThing(localCommand){
 document.getElementById("actioninput").onkeyup = function(e){
     charCode = e.keyCode || e.which;
     if(charCode == 010){
-
+        console.log("foo");
+        var glypharray = currentGlyph.split(",");
+        var newglyph = "";
+        for(var index =0;index < glypharray.length-1;index++){
+            newglyph += glypharray[index] + ",";
+        }
+        currentGlyph = newglyph;
+        redraw();
     }
     
     
@@ -380,7 +391,6 @@ document.getElementById("actioninput").onkeyup = function(e){
 
 document.getElementById("actioninput").onkeypress = function(a){//action
     charCode = a.keyCode || a.which;
-    //console.log(a.which.toString(8));
     if(charCode != 010){
         if(parseInt(currentTable[charCode],8) >= 0700){
             currentGlyph +=  currentTable[charCode] + ",";

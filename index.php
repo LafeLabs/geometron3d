@@ -47,8 +47,8 @@ EGO DEATH:
 <script src = "https://cdnjs.cloudflare.com/ajax/libs/three.js/98/three.js"></script>
 -->
 
-  <script src="http://www.x3dom.org/download/dev/x3dom.js"></script>
-  <link rel="stylesheet" href="http://www.x3dom.org/download/dev/x3dom.css">
+  <script src="https://cdn.jsdelivr.net/npm/x3dom@1.7.2/x3dom.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/x3dom@1.7.2/x3dom.css">
 </head>
 <body>
 <?php
