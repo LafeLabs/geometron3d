@@ -11,9 +11,12 @@ PUBLIC DOMAIN, NO COPYRIGHTS, NO PATENTS.
 echo file_get_contents("bytecode/baseshapes.txt")."\n";
 echo file_get_contents("bytecode/shapetable.txt")."\n";
 echo file_get_contents("bytecode/font.txt")."\n";
-echo file_get_contents("bytecode/keyboard.txt")."\n";
+echo file_get_contents("bytecode/symbolkeyboard.txt")."\n";
 echo file_get_contents("bytecode/symbols013xx.txt")."\n";
 echo file_get_contents("bytecode/symbols010xx.txt")."\n";
+echo file_get_contents("bytecode/symbols017xx.txt")."\n";
+echo file_get_contents("bytecode/symbols016xx.txt")."\n";
+echo file_get_contents("bytecode/shapes06xx.txt")."\n";
 
 
 ?>
@@ -165,8 +168,8 @@ function doTheThing(localCommand){
 ?>
 </div>    
 <div id = "page">
-    <a  id = "editorlink" href = "editor.php"><img style = "width:80px" src = "icons/editor.svg"></a>
-    <a  id = "factorylink" href = "index.php"><img style = "width:80px" src = "icons/symbol.svg"></a>
+    <a  id = "editorlink" href = "editor.php">EDITOR</a>
+    <a  id = "factorylink" href = "index.php">INDEX</a>
 
     <canvas id="invisibleCanvas" style="display:none"></canvas>
     <canvas id="mainCanvas"></canvas>
@@ -329,6 +332,33 @@ if(currentAddress >= 01040 && currentAddress < 01177){
         currentFile = "bytecode/font.txt";
         data = "";
         for(var index = 01040;index < 01177;index++){
+            if(currentTable[index].length > 2){
+                data += "0" + index.toString(8) + ":" + currentTable[index] + "\n";
+            }
+        }
+    }
+}
+
+if(currentAddress >= 01700 && currentAddress <= 01777){
+    if(path.length > 1){
+    }
+    else{
+        currentFile = "bytecode/symbols017xx.txt";
+        data = "";
+        for(var index = 01700;index < 01777;index++){
+            if(currentTable[index].length > 2){
+                data += "0" + index.toString(8) + ":" + currentTable[index] + "\n";
+            }
+        }
+    }
+}
+if(currentAddress >= 01600 && currentAddress <= 01677){
+    if(path.length > 1){
+    }
+    else{
+        currentFile = "bytecode/symbols016xx.txt";
+        data = "";
+        for(var index = 01700;index < 02000;index++){
             if(currentTable[index].length > 2){
                 data += "0" + index.toString(8) + ":" + currentTable[index] + "\n";
             }

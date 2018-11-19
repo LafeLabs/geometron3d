@@ -3,8 +3,9 @@
     main.innerHTML = "";
     doTheThing(0700);
     drawGlyph(currentGlyph);
-
-    document.getElementById("spellcanvas").width = 15*currentGlyph.length;
+    document.getElementById("spellinput").value = currentGlyph;
+    document.getElementById("spellinput").style.width = (currentGlyph.length*1.5).toString() + "em";
+    document.getElementById("spellcanvas").width = 25*currentGlyph.length;
     document.getElementById("spellcanvas").height = 50;
     ctx = document.getElementById("spellcanvas").getContext("2d");
     ctx.clearRect(0,0,document.getElementById("spellcanvas").width,document.getElementById("spellcanvas").height);
@@ -34,3 +35,4 @@
     x = 5;
     y = 45;
     spellGlyph(currentGlyph);
+
