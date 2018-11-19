@@ -1,0 +1,36 @@
+    transformIndex = 0;
+    transforms = [];
+    main.innerHTML = "";
+    doTheThing(0700);
+    drawGlyph(currentGlyph);
+
+    document.getElementById("spellcanvas").width = 15*currentGlyph.length;
+    document.getElementById("spellcanvas").height = 50;
+    ctx = document.getElementById("spellcanvas").getContext("2d");
+    ctx.clearRect(0,0,document.getElementById("spellcanvas").width,document.getElementById("spellcanvas").height);
+
+
+//  cursort.setAttribute("translation",r[0].toString() + " " + r[1].toString() + " " + r[2].toString() );
+    var news = document.createElement("shape");
+    var newt = document.createElement("transform");
+    main.appendChild(newt);
+    newt.setAttribute("translation",r[0].toString() + " " + r[1].toString() + " " + r[2].toString() );
+    var newt2 = document.createElement("transform");
+    newt.appendChild(newt2);
+    newt2.setAttribute("scale",(0.5*xhat[0]).toString() + " " + (0.5*yhat[1]).toString() + " " + (0.5*zhat[2]).toString());
+    newt2.appendChild(news);
+
+    var newa = document.createElement("appearance");
+    news.appendChild(newa);
+    var newm = document.createElement("material");
+    newm.setAttribute("diffuseColor",solidColor);
+    newm.setAttribute("transparency","0.85");
+    newa.appendChild(newm);
+    var newb = document.createElement("box");
+    news.appendChild(newb);
+    
+    doTheThing(0300);
+    side = 40;
+    x = 5;
+    y = 45;
+    spellGlyph(currentGlyph);

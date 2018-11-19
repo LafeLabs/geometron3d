@@ -1,9 +1,9 @@
     
     if(localCommand == 0700){
         r = [0,0,0];
-        xhat = [unit,0,0];
-        yhat = [0,unit,0];
-        zhat = [0,0,unit];
+        xhat = [unit3d,0,0];
+        yhat = [0,unit3d,0];
+        zhat = [0,0,unit3d];
         scale3d = 2;
         solidColor = "1 0 0";
         

@@ -20,7 +20,43 @@
 	{
 		"path":"json",
 		"files":[
-			"dna.txt"
+			"currentjson.txt",
+			"dna.txt",
+			"stylejson.txt"
+		]
+	},
+	{
+		"path":"css",
+		"files":
+		]
+	},
+	{
+		"path":"icons",
+		"files":
+		]
+	},
+	{
+		"path":"javascript",
+		"files":[
+			"actions03xx.txt",
+			"actions07xx.txt",
+			"actions0xx.txt",
+			"init.txt",
+			"pageevents.txt",
+			"redraw.txt",
+			"topfunctions.txt"
+		]
+	},
+	{
+		"path":"bytecode",
+		"files":[
+			"baseshapes.txt",
+			"keyboard.txt",
+			"shapes06xx.txt",
+			"symbolkeyboard.txt",
+			"symbols010xx.txt",
+			"symbols013xx.txt",
+			"symbols017xx.txt"
 		]
 	}
 ]

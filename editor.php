@@ -25,6 +25,7 @@ EGO DEATH:
     <a href = "text2php.php">text2php.php</a>
     <a href = "index.php">index.php</a>
     <a href = "dnagenerator.php">dnagenerator.php</a>
+    <a href = "shapetableeditor.php">shapetableeditor.php</a>
 </div>
 <div id = "namediv"></div>
 <div id="maineditor" contenteditable="true" spellcheck="false"></div>
@@ -40,6 +41,7 @@ EGO DEATH:
     <div class = "bytecode file">bytecode/symbols013xx.txt</div>
     <div class = "bytecode file">bytecode/symbols010xx.txt</div>
     <div class = "bytecode file">bytecode/symbols017xx.txt</div>
+    <div class = "bytecode file">bytecode/shapes016xx.txt</div>
     <div class = "bytecode file">bytecode/shapes06xx.txt</div>
 
     <div class = "javascript file">javascript/topfunctions.txt</div>
@@ -51,6 +53,7 @@ EGO DEATH:
     <div class = "javascript file">javascript/pageevents.txt</div>
 
     <div class = "php file">php/index.txt</div>
+    <div class = "php file">php/shapetableeditor.php</div>
     <div class = "php file">php/editor.txt</div>
     <div class = "php file">php/replicator.txt</div>
     <div class = "php file">php/filesaver.txt</div>
@@ -60,6 +63,7 @@ EGO DEATH:
 
     <div class = "json file">json/dna.txt</div>
     <div class = "json file">json/currentjson.txt</div>
+    <div class = "json file">json/stylejson.txt</div>
 
 </div>
 

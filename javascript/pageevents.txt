@@ -1,0 +1,28 @@
+
+document.getElementById("actioninput").onkeyup = function(e){
+    charCode = e.keyCode || e.which;
+    if(charCode == 010){
+        console.log("foo");
+        var glypharray = currentGlyph.split(",");
+        var newglyph = "";
+        for(var index =0;index < glypharray.length-2;index++){
+            newglyph += glypharray[index] + ",";
+        }
+        currentGlyph = newglyph;
+        redraw();
+    }
+    
+    
+}
+
+document.getElementById("actioninput").onkeypress = function(a){//action
+    charCode = a.keyCode || a.which;
+    if(charCode != 010){
+        if(parseInt(currentTable[charCode],8) >= 0700){
+            currentGlyph +=  currentTable[charCode] + ",";
+        } 
+        this.value = "";
+        redraw();
+    }
+
+}
