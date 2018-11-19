@@ -1,0 +1,254 @@
+    
+    if(localCommand == 0700){
+        r = [0,0,0];
+        xhat = [unit,0,0];
+        yhat = [0,unit,0];
+        zhat = [0,0,unit];
+        scale3d = 2;
+        solidColor = "1 0 0";
+        
+    }
+    if(localCommand == 0710){
+        scale3d = 2;
+    }
+    if(localCommand == 0711){
+        scale3d = 1.5;//     3/2
+    }
+    if(localCommand == 0712){
+        scale3d = 1.25;//    5/4
+    }
+    if(localCommand == 0713){
+        scale3d = 1.125;//   9/8
+    }
+    if(localCommand == 0714){
+        scale3d = 1.0625;//  17/16
+    }
+
+    if(localCommand == 0720){
+        solidColor = "1 1 1";
+    }
+    if(localCommand == 0721){
+        solidColor = "1 0 0";
+    }
+    if(localCommand == 0722){
+        solidColor = "0 1 0";
+    }
+    if(localCommand == 0723){
+        solidColor = "0 0 1";
+    }
+    if(localCommand == 0724){
+        solidColor = "0 1 1";
+    }
+    if(localCommand == 0725){
+        solidColor = "1 1 0";
+    }
+    if(localCommand == 0726){
+        solidColor = "1 0 1";
+    }
+    if(localCommand == 0727){
+        solidColor = "0.5 0.5 0.5";
+    }
+
+
+    if(localCommand == 0730){
+        r  = [xhat[0] + r[0],xhat[1] + r[1],xhat[2] + r[2]];
+
+        var newt = document.createElement("transform");
+        newt.setAttribute("translation", xhat[0].toString() + " " + xhat[1].toString() + " " + xhat[2].toString() );
+        if(transformIndex > 0){
+            transforms[transformIndex - 1].appendChild(newt);
+        }
+        else{
+            document.getElementById("main").appendChild(newt);
+        }
+        transforms.push(newt);
+        
+        transformIndex++;
+    }
+    if(localCommand == 0731){
+        r  = [-xhat[0] + r[0],-xhat[1] + r[1],-xhat[2] + r[2]];
+        var newt = document.createElement("transform");
+        newt.setAttribute("translation",(-xhat[0]).toString() + " " + (-xhat[1]).toString() + " " + (-xhat[2]).toString() );
+        if(transformIndex > 0){
+            transforms[transformIndex - 1].appendChild(newt);
+        }
+        else{
+            document.getElementById("main").appendChild(newt);
+        }
+        transforms.push(newt);
+        transformIndex++;
+        
+    }
+    if(localCommand == 0732){
+        r  = [yhat[0] + r[0],yhat[1] + r[1],yhat[2] + r[2]];
+        var newt = document.createElement("transform");
+        newt.setAttribute("translation",yhat[0].toString() + " " + yhat[1].toString() + " " + yhat[2].toString() );
+        if(transformIndex > 0){
+            transforms[transformIndex - 1].appendChild(newt);
+        }
+        else{
+            document.getElementById("main").appendChild(newt);
+        }
+        transforms.push(newt);
+        transformIndex++;
+    }
+    if(localCommand == 0733){
+        r  = [-yhat[0] + r[0],-yhat[1] + r[1],-yhat[2] + r[2]];
+        var newt = document.createElement("transform");
+        newt.setAttribute("translation",(-yhat[0]).toString() + " " + (-yhat[1]).toString() + " " + (-yhat[2]).toString() );
+        if(transformIndex > 0){
+            transforms[transformIndex - 1].appendChild(newt);
+        }
+        else{
+            document.getElementById("main").appendChild(newt);
+        }
+        transforms.push(newt);
+        transformIndex++;
+    }
+    if(localCommand == 0734){
+        r  = [zhat[0] + r[0],zhat[1] + r[1],zhat[2] + r[2]];
+        var newt = document.createElement("transform");
+        newt.setAttribute("translation",zhat[0].toString() + " " + zhat[1].toString() + " " + zhat[2].toString() );
+        if(transformIndex > 0){
+            transforms[transformIndex - 1].appendChild(newt);
+        }
+        else{
+            document.getElementById("main").appendChild(newt);
+        }
+        transforms.push(newt);
+        transformIndex++;
+    }
+    if(localCommand == 0735){
+        r  = [-zhat[0] + r[0],-zhat[1] + r[1],-zhat[2] + r[2]];
+        var newt = document.createElement("transform");
+        newt.setAttribute("translation",(-zhat[0]).toString() + " " + (-zhat[1]).toString() + " " + (-zhat[2]).toString());
+        if(transformIndex > 0){
+            transforms[transformIndex - 1].appendChild(newt);
+        }
+        else{
+            document.getElementById("main").appendChild(newt);
+        }
+        transforms.push(newt);
+        transformIndex++;
+    }
+    if(localCommand == 0736){
+         xhat = [xhat[0]/scale3d,xhat[1]/scale3d,xhat[2]/scale3d];
+         yhat = [yhat[0]/scale3d,yhat[1]/scale3d,yhat[2]/scale3d];
+         zhat = [zhat[0]/scale3d,zhat[1]/scale3d,zhat[2]/scale3d];
+
+        var newt = document.createElement("transform");
+        newt.setAttribute("scale", (1/scale3d).toString() + " " + (1/scale3d).toString() + " " + (1/scale3d).toString() );
+        if(transformIndex > 0){
+            transforms[transformIndex - 1].appendChild(newt);
+        }
+        else{
+            document.getElementById("main").appendChild(newt);
+        }
+        transforms.push(newt);
+        
+        transformIndex++;
+
+    }
+    if(localCommand == 0737){
+         xhat = [xhat[0]*scale3d,xhat[1]*scale3d,xhat[2]*scale3d];
+         yhat = [yhat[0]*scale3d,yhat[1]*scale3d,yhat[2]*scale3d];
+         zhat = [zhat[0]*scale3d,zhat[1]*scale3d,zhat[2]*scale3d];
+
+        var newt = document.createElement("transform");
+        newt.setAttribute("scale", scale3d.toString() + " " + scale3d.toString() + " " + scale3d.toString() );
+        if(transformIndex > 0){
+            transforms[transformIndex - 1].appendChild(newt);
+        }
+        else{
+            document.getElementById("main").appendChild(newt);
+        }
+        transforms.push(newt);
+        
+        transformIndex++;
+
+    }
+    
+    
+    if(localCommand == 0740){
+        //box
+      
+        var news = document.createElement("shape");
+        var newt = document.createElement("transform");
+        main.appendChild(newt);
+        newt.setAttribute("translation",r[0].toString() + " " + r[1].toString() + " " + r[2].toString() );
+        var newt2 = document.createElement("transform");
+        newt.appendChild(newt2);
+        newt2.setAttribute("scale",(0.5*xhat[0]).toString() + " " + (0.5*yhat[1]).toString() + " " + (0.5*zhat[2]).toString());
+        newt2.appendChild(news);
+
+        var newa = document.createElement("appearance");
+        news.appendChild(newa);
+        var newm = document.createElement("material");
+        newm.setAttribute("diffuseColor",solidColor);
+        newa.appendChild(newm);
+        var newb = document.createElement("box");
+        news.appendChild(newb);
+        
+    }
+    if(localCommand == 0741){
+        
+        //sphere
+      
+        var news = document.createElement("shape");
+        var newt = document.createElement("transform");
+        main.appendChild(newt);
+        newt.setAttribute("translation",r[0].toString() + " " + r[1].toString() + " " + r[2].toString() );
+        var newt2 = document.createElement("transform");
+        newt.appendChild(newt2);
+        newt2.setAttribute("scale",(0.5*xhat[0]).toString() + " " + (0.5*yhat[1]).toString() + " " + (0.5*zhat[2]).toString());
+        newt2.appendChild(news);
+
+        var newa = document.createElement("appearance");
+        news.appendChild(newa);
+        var newm = document.createElement("material");
+        newm.setAttribute("diffuseColor",solidColor);
+        newa.appendChild(newm);
+        var newb = document.createElement("sphere");
+        news.appendChild(newb);
+    }
+    if(localCommand == 0742){
+        //cylinder
+        var news = document.createElement("shape");
+        var newt = document.createElement("transform");
+        main.appendChild(newt);
+        newt.setAttribute("translation",r[0].toString() + " " + r[1].toString() + " " + r[2].toString() );
+        var newt2 = document.createElement("transform");
+        newt.appendChild(newt2);
+        newt2.setAttribute("scale",(0.5*xhat[0]).toString() + " " + (0.5*yhat[1]).toString() + " " + (0.5*zhat[2]).toString());
+        newt2.appendChild(news);
+
+        var newa = document.createElement("appearance");
+        news.appendChild(newa);
+        var newm = document.createElement("material");
+        newm.setAttribute("diffuseColor",solidColor);
+        newa.appendChild(newm);
+        var newb = document.createElement("cylinder");
+        news.appendChild(newb);
+    }
+    if(localCommand == 0743){
+        
+        //cone
+        var news = document.createElement("shape");
+        var newt = document.createElement("transform");
+        main.appendChild(newt);
+        newt.setAttribute("translation",r[0].toString() + " " + r[1].toString() + " " + r[2].toString() );
+        var newt2 = document.createElement("transform");
+        newt.appendChild(newt2);
+        newt2.setAttribute("scale",(0.5*xhat[0]).toString() + " " + (0.5*yhat[1]).toString() + " " + (0.5*zhat[2]).toString());
+        newt2.appendChild(news);
+
+        var newa = document.createElement("appearance");
+        news.appendChild(newa);
+        var newm = document.createElement("material");
+        newm.setAttribute("diffuseColor",solidColor);
+        newa.appendChild(newm);
+        var newb = document.createElement("cone");
+        news.appendChild(newb);
+        
+    }
+    

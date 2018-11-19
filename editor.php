@@ -31,6 +31,25 @@ EGO DEATH:
 <div id = "filescroll">
 
     <div class = "html file">html/index.txt</div>
+
+    <div class = "bytecode file">bytecode/baseshapes.txt</div>
+    <div class = "bytecode file">bytecode/shapetable.txt</div>
+    <div class = "bytecode file">bytecode/font.txt</div>
+    <div class = "bytecode file">bytecode/keyboard.txt</div>
+    <div class = "bytecode file">bytecode/symbolkeyboard.txt</div>
+    <div class = "bytecode file">bytecode/symbols013xx.txt</div>
+    <div class = "bytecode file">bytecode/symbols010xx.txt</div>
+    <div class = "bytecode file">bytecode/symbols017xx.txt</div>
+    <div class = "bytecode file">bytecode/shapes06xx.txt</div>
+
+    <div class = "javascript file">javascript/topfunctions.txt</div>
+    <div class = "javascript file">javascript/actions0xx.txt</div>
+    <div class = "javascript file">javascript/actions03xx.txt</div>
+    <div class = "javascript file">javascript/actions07xx.txt</div>
+    <div class = "javascript file">javascript/init.txt</div>
+    <div class = "javascript file">javascript/redraw.txt</div>
+    <div class = "javascript file">javascript/pageevents.txt</div>
+
     <div class = "php file">php/index.txt</div>
     <div class = "php file">php/editor.txt</div>
     <div class = "php file">php/replicator.txt</div>
@@ -39,8 +58,9 @@ EGO DEATH:
     <div class = "php file">php/text2php.txt</div>
     <div class = "php file">php/dnagenerator.txt</div>
 
-
     <div class = "json file">json/dna.txt</div>
+    <div class = "json file">json/currentjson.txt</div>
+
 </div>
 
 <script>
