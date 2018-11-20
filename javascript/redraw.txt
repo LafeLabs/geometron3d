@@ -35,4 +35,13 @@
     x = 5;
     y = 45;
     spellGlyph(currentGlyph);
+    currentJSON.glyph = currentGlyph;
+    data = encodeURIComponent(JSON.stringify(currentJSON,null, "    "));
+    currentFile = "json/currentjson.txt";
+    var httpc = new XMLHttpRequest();
+    var url = "filesaver.php";        
+    httpc.open("POST", url, true);
+    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
+    httpc.send("data="+data+"&filename="+currentFile);//send text to filesaver.php
+
 

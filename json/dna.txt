@@ -26,16 +26,6 @@
 		]
 	},
 	{
-		"path":"css",
-		"files":
-		]
-	},
-	{
-		"path":"icons",
-		"files":
-		]
-	},
-	{
 		"path":"javascript",
 		"files":[
 			"actions03xx.txt",
@@ -52,7 +42,9 @@
 		"files":[
 			"baseshapes.txt",
 			"keyboard.txt",
+			"shapes016xx.txt",
 			"shapes06xx.txt",
+			"shapetable.txt",
 			"symbolkeyboard.txt",
 			"symbols010xx.txt",
 			"symbols013xx.txt",

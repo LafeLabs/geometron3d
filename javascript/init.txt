@@ -22,35 +22,9 @@ doTheThing(07);
 
 doTheThing(06);
 
-/*
-currentTable[0141] = "0731";//a
-currentTable[0163] = "0730";//s
-currentTable[0144] = "0733";//d
-currentTable[0146] = "0732";//f
-currentTable[0147] = "0734";//g
-currentTable[0150] = "0735";//h
-
-currentTable[0152] = "0736";//j
-currentTable[0153] = "0737";//k
-
-currentTable[0172] = "0740";//z
-currentTable[0170] = "0741";//x
-currentTable[0143] = "0742";//c
-currentTable[0166] = "0743";//v
-
-currentTable[061] = "0720";//1
-currentTable[062] = "0721";//2
-currentTable[063] = "0722";//3
-currentTable[064] = "0723";//4
-currentTable[065] = "0724";//5
-currentTable[066] = "0725";//6
-currentTable[067] = "0726";//7
 
 
-*/
-//currentGlyph = "0740,0730,0736,0740,";
-
-currentGlyph = "";
+currentGlyph = currentJSON.glyph;
 main = document.getElementById("main");
 currentx3d = "";
 transformIndex = 0;
