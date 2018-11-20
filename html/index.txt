@@ -1,5 +1,5 @@
 <a href = "editor.php">editor.php</a>
-
+<a href = "shapetableeditor.php">shapetableeditor.php</a>
 <input id = "actioninput"/>
 
 <div id = "x3dbox">
