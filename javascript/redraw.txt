@@ -18,7 +18,7 @@
     newt.setAttribute("translation",r[0].toString() + " " + r[1].toString() + " " + r[2].toString() );
     var newt2 = document.createElement("transform");
     newt.appendChild(newt2);
-    newt2.setAttribute("scale",(0.5*xhat[0]).toString() + " " + (0.5*yhat[1]).toString() + " " + (0.5*zhat[2]).toString());
+    newt2.setAttribute("scale",(0.5*side3d).toString() + " " + (0.5*side3d).toString() + " " + (0.5*side3d).toString());
     newt2.appendChild(news);
 
     var newa = document.createElement("appearance");

@@ -26,3 +26,8 @@ document.getElementById("actioninput").onkeypress = function(a){//action
     }
 
 }
+
+document.getElementById("spellinput").onchange = function(){
+    currentGlyph = this.value;
+    redraw();
+}

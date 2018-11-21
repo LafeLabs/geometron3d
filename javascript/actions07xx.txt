@@ -5,8 +5,9 @@
         yhat = [0,unit3d,0];
         zhat = [0,0,unit3d];
         scale3d = 2;
+        side3d = unit3d;
         solidColor = "1 0 0";
-        
+        thetaStep3d = Math.PI/8;
     }
     if(localCommand == 0710){
         scale3d = 2;
@@ -55,117 +56,49 @@
 
         var newt = document.createElement("transform");
         newt.setAttribute("translation", xhat[0].toString() + " " + xhat[1].toString() + " " + xhat[2].toString() );
-        if(transformIndex > 0){
-            transforms[transformIndex - 1].appendChild(newt);
-        }
-        else{
-            document.getElementById("main").appendChild(newt);
-        }
-        transforms.push(newt);
-        
-        transformIndex++;
+
     }
     if(localCommand == 0731){
         r  = [-xhat[0] + r[0],-xhat[1] + r[1],-xhat[2] + r[2]];
         var newt = document.createElement("transform");
         newt.setAttribute("translation",(-xhat[0]).toString() + " " + (-xhat[1]).toString() + " " + (-xhat[2]).toString() );
-        if(transformIndex > 0){
-            transforms[transformIndex - 1].appendChild(newt);
-        }
-        else{
-            document.getElementById("main").appendChild(newt);
-        }
-        transforms.push(newt);
-        transformIndex++;
         
     }
     if(localCommand == 0732){
         r  = [yhat[0] + r[0],yhat[1] + r[1],yhat[2] + r[2]];
         var newt = document.createElement("transform");
         newt.setAttribute("translation",yhat[0].toString() + " " + yhat[1].toString() + " " + yhat[2].toString() );
-        if(transformIndex > 0){
-            transforms[transformIndex - 1].appendChild(newt);
-        }
-        else{
-            document.getElementById("main").appendChild(newt);
-        }
-        transforms.push(newt);
-        transformIndex++;
+        
     }
     if(localCommand == 0733){
         r  = [-yhat[0] + r[0],-yhat[1] + r[1],-yhat[2] + r[2]];
         var newt = document.createElement("transform");
         newt.setAttribute("translation",(-yhat[0]).toString() + " " + (-yhat[1]).toString() + " " + (-yhat[2]).toString() );
-        if(transformIndex > 0){
-            transforms[transformIndex - 1].appendChild(newt);
-        }
-        else{
-            document.getElementById("main").appendChild(newt);
-        }
-        transforms.push(newt);
-        transformIndex++;
+        
     }
     if(localCommand == 0734){
         r  = [zhat[0] + r[0],zhat[1] + r[1],zhat[2] + r[2]];
         var newt = document.createElement("transform");
         newt.setAttribute("translation",zhat[0].toString() + " " + zhat[1].toString() + " " + zhat[2].toString() );
-        if(transformIndex > 0){
-            transforms[transformIndex - 1].appendChild(newt);
-        }
-        else{
-            document.getElementById("main").appendChild(newt);
-        }
-        transforms.push(newt);
-        transformIndex++;
+        
     }
     if(localCommand == 0735){
         r  = [-zhat[0] + r[0],-zhat[1] + r[1],-zhat[2] + r[2]];
         var newt = document.createElement("transform");
         newt.setAttribute("translation",(-zhat[0]).toString() + " " + (-zhat[1]).toString() + " " + (-zhat[2]).toString());
-        if(transformIndex > 0){
-            transforms[transformIndex - 1].appendChild(newt);
-        }
-        else{
-            document.getElementById("main").appendChild(newt);
-        }
-        transforms.push(newt);
-        transformIndex++;
     }
     if(localCommand == 0736){
          xhat = [xhat[0]/scale3d,xhat[1]/scale3d,xhat[2]/scale3d];
          yhat = [yhat[0]/scale3d,yhat[1]/scale3d,yhat[2]/scale3d];
          zhat = [zhat[0]/scale3d,zhat[1]/scale3d,zhat[2]/scale3d];
-
-        var newt = document.createElement("transform");
-        newt.setAttribute("scale", (1/scale3d).toString() + " " + (1/scale3d).toString() + " " + (1/scale3d).toString() );
-        if(transformIndex > 0){
-            transforms[transformIndex - 1].appendChild(newt);
-        }
-        else{
-            document.getElementById("main").appendChild(newt);
-        }
-        transforms.push(newt);
-        
-        transformIndex++;
-
+         side3d /=scale3d;
+            
     }
     if(localCommand == 0737){
          xhat = [xhat[0]*scale3d,xhat[1]*scale3d,xhat[2]*scale3d];
          yhat = [yhat[0]*scale3d,yhat[1]*scale3d,yhat[2]*scale3d];
          zhat = [zhat[0]*scale3d,zhat[1]*scale3d,zhat[2]*scale3d];
-
-        var newt = document.createElement("transform");
-        newt.setAttribute("scale", scale3d.toString() + " " + scale3d.toString() + " " + scale3d.toString() );
-        if(transformIndex > 0){
-            transforms[transformIndex - 1].appendChild(newt);
-        }
-        else{
-            document.getElementById("main").appendChild(newt);
-        }
-        transforms.push(newt);
-        
-        transformIndex++;
-
+         side3d *=scale3d;
     }
     
     
@@ -178,7 +111,7 @@
         newt.setAttribute("translation",r[0].toString() + " " + r[1].toString() + " " + r[2].toString() );
         var newt2 = document.createElement("transform");
         newt.appendChild(newt2);
-        newt2.setAttribute("scale",(0.5*xhat[0]).toString() + " " + (0.5*yhat[1]).toString() + " " + (0.5*zhat[2]).toString());
+        newt2.setAttribute("scale",(0.5*side3d).toString() + " " + (0.5*side3d).toString() + " " + (0.5*side3d).toString());
         newt2.appendChild(news);
 
         var newa = document.createElement("appearance");
@@ -200,7 +133,7 @@
         newt.setAttribute("translation",r[0].toString() + " " + r[1].toString() + " " + r[2].toString() );
         var newt2 = document.createElement("transform");
         newt.appendChild(newt2);
-        newt2.setAttribute("scale",(0.5*xhat[0]).toString() + " " + (0.5*yhat[1]).toString() + " " + (0.5*zhat[2]).toString());
+        newt2.setAttribute("scale",(0.5*side3d).toString() + " " + (0.5*side3d).toString() + " " + (0.5*side3d).toString());
         newt2.appendChild(news);
 
         var newa = document.createElement("appearance");
@@ -219,7 +152,7 @@
         newt.setAttribute("translation",r[0].toString() + " " + r[1].toString() + " " + r[2].toString() );
         var newt2 = document.createElement("transform");
         newt.appendChild(newt2);
-        newt2.setAttribute("scale",(0.5*xhat[0]).toString() + " " + (0.5*yhat[1]).toString() + " " + (0.5*zhat[2]).toString());
+        newt2.setAttribute("scale",(0.5*side3d).toString() + " " + (0.5*side3d).toString() + " " + (0.5*side3d).toString());
         newt2.appendChild(news);
 
         var newa = document.createElement("appearance");
@@ -239,7 +172,7 @@
         newt.setAttribute("translation",r[0].toString() + " " + r[1].toString() + " " + r[2].toString() );
         var newt2 = document.createElement("transform");
         newt.appendChild(newt2);
-        newt2.setAttribute("scale",(0.5*xhat[0]).toString() + " " + (0.5*yhat[1]).toString() + " " + (0.5*zhat[2]).toString());
+        newt2.setAttribute("scale",(0.5*side3d).toString() + " " + (0.5*side3d).toString() + " " + (0.5*side3d).toString());
         newt2.appendChild(news);
 
         var newa = document.createElement("appearance");
@@ -253,7 +186,79 @@
     }
     if(localCommand == 0750){
         //rotate around yhat axis, so leave yhat fixed;
-        
-        
+        var xhatprime = [1,0,0];
+        var yhatprime = [0,1,0];
+        var zhatprime = [0,0,1];
+        xhatprime[0] = Math.cos(thetaStep3d)*xhat[0] - Math.sin(thetaStep3d)*xhat[2];
+        xhatprime[1] = xhat[1];
+        xhatprime[2] = Math.sin(thetaStep3d)*xhat[0] + Math.cos(thetaStep3d)*xhat[2];
+        yhatprime[0] = Math.cos(thetaStep3d)*yhat[0] - Math.sin(thetaStep3d)*yhat[2];
+        yhatprime[1] = yhat[1];
+        yhatprime[2] = Math.sin(thetaStep3d)*yhat[0] + Math.cos(thetaStep3d)*yhat[2];
+        zhatprime[0] = Math.cos(thetaStep3d)*zhat[0] - Math.sin(thetaStep3d)*zhat[2];
+        zhatprime[1]  = zhat[1];
+        zhatprime[2] = Math.sin(thetaStep3d)*zhat[0] + Math.cos(thetaStep3d)*zhat[2];
+        xhat = xhatprime;
+        yhat = yhatprime;
+        zhat = zhatprime;
     }
-    
+    if(localCommand == 0751){
+        //rotate around yhat axis, so leave yhat fixed;
+        var xhatprime = [1,0,0];
+        var yhatprime = [0,1,0];
+        var zhatprime = [0,0,1];
+        xhatprime[0] = Math.cos(-thetaStep3d)*xhat[0] - Math.sin(-thetaStep3d)*xhat[2];
+        xhatprime[1] = xhat[1];
+        xhatprime[2] = Math.sin(-thetaStep3d)*xhat[0] + Math.cos(-thetaStep3d)*xhat[2];
+        yhatprime[0] = Math.cos(-thetaStep3d)*yhat[0] - Math.sin(-thetaStep3d)*yhat[2];
+        yhatprime[1] = yhat[1];
+        yhatprime[2] = Math.sin(-thetaStep3d)*yhat[0] + Math.cos(-thetaStep3d)*yhat[2];
+        zhatprime[0] = Math.cos(-thetaStep3d)*zhat[0] - Math.sin(-thetaStep3d)*zhat[2];
+        zhatprime[1]  = zhat[1];
+        zhatprime[2] = Math.sin(-thetaStep3d)*zhat[0] + Math.cos(-thetaStep3d)*zhat[2];
+        xhat = xhatprime;
+        yhat = yhatprime;
+        zhat = zhatprime;
+    }
+
+    if(localCommand == 0752){
+        //rotate around zhat axis, so leave zhat fixed;
+        var xhatprime = [1,0,0];
+        var yhatprime = [0,1,0];
+        var zhatprime = [0,0,1];
+        xhatprime[0] = Math.cos(thetaStep3d)*xhat[0] - Math.sin(thetaStep3d)*xhat[1];
+        xhatprime[1] = Math.sin(thetaStep3d)*xhat[0] + Math.cos(thetaStep3d)*xhat[1];
+        xhatprime[2] = xhat[2];
+        
+        yhatprime[0] = Math.cos(thetaStep3d)*yhat[0] - Math.sin(thetaStep3d)*yhat[1];
+        yhatprime[1] = Math.sin(thetaStep3d)*yhat[0] + Math.cos(thetaStep3d)*yhat[1];
+        yhatprime[2] = yhat[2];
+        
+        zhatprime[0] = Math.cos(thetaStep3d)*zhat[0] - Math.sin(thetaStep3d)*zhat[1];
+        zhatprime[1] = Math.sin(thetaStep3d)*zhat[0] + Math.cos(thetaStep3d)*zhat[1];
+        zhatprime[2]  = zhat[2];
+
+        xhat = xhatprime;
+        yhat = yhatprime;
+        zhat = zhatprime;
+    }
+    if(localCommand == 0753){
+        //rotate around zhat axis, so leave zhat fixed;
+        var xhatprime = [1,0,0];
+        var yhatprime = [0,1,0];
+        var zhatprime = [0,0,1];
+        xhatprime[0] = Math.cos(-thetaStep3d)*xhat[0] - Math.sin(-thetaStep3d)*xhat[1];
+        xhatprime[1] = Math.sin(-thetaStep3d)*xhat[0] + Math.cos(-thetaStep3d)*xhat[1];
+        xhatprime[2] = xhat[2];
+        
+        yhatprime[0] = Math.cos(-thetaStep3d)*yhat[0] - Math.sin(-thetaStep3d)*yhat[1];
+        yhatprime[1] = Math.sin(-thetaStep3d)*yhat[0] + Math.cos(-thetaStep3d)*yhat[1];
+        yhatprime[2] = yhat[2];
+        
+        zhatprime[0] = Math.cos(-thetaStep3d)*zhat[0] - Math.sin(-thetaStep3d)*zhat[1];
+        zhatprime[1] = Math.sin(-thetaStep3d)*zhat[0] + Math.cos(-thetaStep3d)*zhat[1];
+        zhatprime[2]  = zhat[2];
+        xhat = xhatprime;
+        yhat = yhatprime;
+        zhat = zhatprime;
+    }
