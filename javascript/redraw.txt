@@ -19,8 +19,11 @@
     var newt2 = document.createElement("transform");
     newt.appendChild(newt2);
     newt2.setAttribute("scale",(0.5*side3d).toString() + " " + (0.5*side3d).toString() + " " + (0.5*side3d).toString());
-    newt2.appendChild(news);
-
+    var newt3 = document.createElement("transform");
+    newt2.appendChild(newt3);
+    alpha = -Math.atan2(yhat[0],yhat[1]);
+    newt3.setAttribute("rotation",zhat[0].toString() + " " + zhat[1].toString() + " " + zhat[2].toString() + " "+ alpha.toString());
+    newt3.appendChild(news);
     var newa = document.createElement("appearance");
     news.appendChild(newa);
     var newm = document.createElement("material");
