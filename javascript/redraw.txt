@@ -23,11 +23,17 @@
     newt2.appendChild(newt3);
     alpha = -Math.atan2(yhat[0],yhat[1]);
     newt3.setAttribute("rotation",zhat[0].toString() + " " + zhat[1].toString() + " " + zhat[2].toString() + " "+ alpha.toString());
+    
     var newt4 = document.createElement("transform");
     newt3.appendChild(newt4);
     beta = -Math.atan2(xhat[2],xhat[0]);
     newt4.setAttribute("rotation",yhat[0].toString() + " " + yhat[1].toString() + " " + yhat[2].toString() + " "+ beta.toString());
-    newt4.appendChild(news);
+
+    var newt5 = document.createElement("transform");
+    newt4.appendChild(newt5);
+    gamma = Math.atan2(yhat[2],yhat[1]);
+    newt5.setAttribute("rotation",xhat[0].toString() + " " + xhat[1].toString() + " " + xhat[2].toString() + " "+ gamma.toString());
+    newt5.appendChild(news);
 
     var newa = document.createElement("appearance");
     news.appendChild(newa);
