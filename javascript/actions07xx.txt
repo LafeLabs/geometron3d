@@ -262,3 +262,49 @@
         yhat = yhatprime;
         zhat = zhatprime;
     }
+
+
+    if(localCommand == 0754){
+        //rotate around xhat axis, so leave xhat fixed;
+        var xhatprime = [1,0,0];
+        var yhatprime = [0,1,0];
+        var zhatprime = [0,0,1];
+        
+        xhatprime[0] = xhat[0];
+        xhatprime[1] = Math.cos(thetaStep3d)*xhat[1] - Math.sin(thetaStep3d)*xhat[2];
+        xhatprime[2] = Math.sin(thetaStep3d)*xhat[1] + Math.cos(thetaStep3d)*xhat[2];
+        
+        yhatprime[0] = yhat[0];
+        yhatprime[1] = Math.cos(thetaStep3d)*yhat[1] - Math.sin(thetaStep3d)*yhat[2];
+        yhatprime[2] = Math.sin(thetaStep3d)*yhat[1] + Math.cos(thetaStep3d)*yhat[2];
+
+        zhatprime[0]  = zhat[0];
+        zhatprime[1] = Math.cos(thetaStep3d)*zhat[1] - Math.sin(thetaStep3d)*zhat[2];
+        zhatprime[2] = Math.sin(thetaStep3d)*zhat[1] + Math.cos(thetaStep3d)*zhat[2];
+
+        xhat = xhatprime;
+        yhat = yhatprime;
+        zhat = zhatprime;
+    }
+    if(localCommand == 0755){
+        //rotate around xhat axis, so leave xhat fixed;
+        var xhatprime = [1,0,0];
+        var yhatprime = [0,1,0];
+        var zhatprime = [0,0,1];
+
+        xhatprime[0] = xhat[0];
+        xhatprime[1] = Math.cos(-thetaStep3d)*xhat[1] - Math.sin(-thetaStep3d)*xhat[2];
+        xhatprime[2] = Math.sin(-thetaStep3d)*xhat[1] + Math.cos(-thetaStep3d)*xhat[2];
+        
+        yhatprime[0] = yhat[0];
+        yhatprime[1] = Math.cos(-thetaStep3d)*yhat[1] - Math.sin(-thetaStep3d)*yhat[2];
+        yhatprime[2] = Math.sin(-thetaStep3d)*yhat[1] + Math.cos(-thetaStep3d)*yhat[2];
+
+        zhatprime[0]  = zhat[0];
+        zhatprime[1] = Math.cos(-thetaStep3d)*zhat[1] - Math.sin(-thetaStep3d)*zhat[2];
+        zhatprime[2] = Math.sin(-thetaStep3d)*zhat[1] + Math.cos(-thetaStep3d)*zhat[2];
+        
+        xhat = xhatprime;
+        yhat = yhatprime;
+        zhat = zhatprime;
+    }
