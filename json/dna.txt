@@ -31,6 +31,7 @@
 			"actions03xx.txt",
 			"actions07xx.txt",
 			"actions0xx.txt",
+			"drawcursor.txt",
 			"init.txt",
 			"pageevents.txt",
 			"redraw.txt",
@@ -48,6 +49,7 @@
 			"symbolkeyboard.txt",
 			"symbols010xx.txt",
 			"symbols013xx.txt",
+			"symbols016xx.txt",
 			"symbols017xx.txt"
 		]
 	}

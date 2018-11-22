@@ -171,6 +171,14 @@ function redraw(){
     echo file_get_contents("javascript/redraw.txt");
 ?>
 }
+function drawcursor(){
+
+<?php
+    echo file_get_contents("javascript/drawcursor.txt");
+?>
+
+    
+}
 </script>
 
 <script id = "pageevents">

@@ -7,7 +7,7 @@
         scale3d = 2;
         side3d = unit3d;
         solidColor = "1 0 0";
-        thetaStep3d = Math.PI/8;
+        thetaStep3d = Math.PI/2;
         alpha = 0;
         beta = 0;
         gamma = 0;
@@ -118,15 +118,15 @@
         alpha = -Math.atan2(yhat[0],yhat[1]);
         newt3.setAttribute("rotation",zhat[0].toString() + " " + zhat[1].toString() + " " + zhat[2].toString() + " "+ alpha.toString());
         var newt4 = document.createElement("transform");
-    newt3.appendChild(newt4);
-    beta = -Math.atan2(xhat[2],xhat[0]);
-    newt4.setAttribute("rotation",yhat[0].toString() + " " + yhat[1].toString() + " " + yhat[2].toString() + " "+ beta.toString());
+        newt3.appendChild(newt4);
+        beta = -Math.atan2(xhat[2],xhat[0]);
+        newt4.setAttribute("rotation",yhat[0].toString() + " " + yhat[1].toString() + " " + yhat[2].toString() + " "+ beta.toString());
 
-    var newt5 = document.createElement("transform");
-    newt4.appendChild(newt5);
-    gamma = Math.atan2(yhat[2],yhat[1]);
-    newt5.setAttribute("rotation",xhat[0].toString() + " " + xhat[1].toString() + " " + xhat[2].toString() + " "+ gamma.toString());
-    newt5.appendChild(news);
+        var newt5 = document.createElement("transform");
+        newt4.appendChild(newt5);
+        gamma = Math.atan2(yhat[2],yhat[1]);
+        newt5.setAttribute("rotation",xhat[0].toString() + " " + xhat[1].toString() + " " + xhat[2].toString() + " "+ gamma.toString());
+        newt5.appendChild(news);
 
         var newa = document.createElement("appearance");
         news.appendChild(newa);
@@ -170,7 +170,17 @@
         newt2.appendChild(newt3);
         alpha = -Math.atan2(yhat[0],yhat[1]);
         newt3.setAttribute("rotation",zhat[0].toString() + " " + zhat[1].toString() + " " + zhat[2].toString() + " "+ alpha.toString());
-        newt3.appendChild(news);
+        var newt4 = document.createElement("transform");
+        newt3.appendChild(newt4);
+        beta = -Math.atan2(xhat[2],xhat[0]);
+        newt4.setAttribute("rotation",yhat[0].toString() + " " + yhat[1].toString() + " " + yhat[2].toString() + " "+ beta.toString());
+
+        var newt5 = document.createElement("transform");
+        newt4.appendChild(newt5);
+        gamma = Math.atan2(yhat[2],yhat[1]);
+        newt5.setAttribute("rotation",xhat[0].toString() + " " + xhat[1].toString() + " " + xhat[2].toString() + " "+ gamma.toString());
+        newt5.appendChild(news);
+
         var newa = document.createElement("appearance");
         news.appendChild(newa);
         var newm = document.createElement("material");
@@ -189,7 +199,20 @@
         var newt2 = document.createElement("transform");
         newt.appendChild(newt2);
         newt2.setAttribute("scale",(0.5*side3d).toString() + " " + (0.5*side3d).toString() + " " + (0.5*side3d).toString());
-        newt2.appendChild(news);
+        var newt3 = document.createElement("transform");
+        newt2.appendChild(newt3);
+        alpha = -Math.atan2(yhat[0],yhat[1]);
+        newt3.setAttribute("rotation",zhat[0].toString() + " " + zhat[1].toString() + " " + zhat[2].toString() + " "+ alpha.toString());
+        var newt4 = document.createElement("transform");
+        newt3.appendChild(newt4);
+        beta = -Math.atan2(xhat[2],xhat[0]);
+        newt4.setAttribute("rotation",yhat[0].toString() + " " + yhat[1].toString() + " " + yhat[2].toString() + " "+ beta.toString());
+
+        var newt5 = document.createElement("transform");
+        newt4.appendChild(newt5);
+        gamma = Math.atan2(yhat[2],yhat[1]);
+        newt5.setAttribute("rotation",xhat[0].toString() + " " + xhat[1].toString() + " " + xhat[2].toString() + " "+ gamma.toString());
+        newt5.appendChild(news);
 
         var newa = document.createElement("appearance");
         news.appendChild(newa);
@@ -199,6 +222,42 @@
         var newb = document.createElement("cone");
         news.appendChild(newb);
         
+    }
+    if(localCommand == 0744){
+        
+        //cone
+        var news = document.createElement("shape");
+        var newt = document.createElement("transform");
+        main.appendChild(newt);
+        newt.setAttribute("translation",r[0].toString() + " " + r[1].toString() + " " + r[2].toString() );
+        var newt2 = document.createElement("transform");
+        newt.appendChild(newt2);
+        newt2.setAttribute("scale",(0.5*side3d).toString() + " " + (0.5*side3d).toString() + " " + (0.5*side3d).toString());
+        var newt3 = document.createElement("transform");
+        newt2.appendChild(newt3);
+        alpha = -Math.atan2(yhat[0],yhat[1]);
+        newt3.setAttribute("rotation",zhat[0].toString() + " " + zhat[1].toString() + " " + zhat[2].toString() + " "+ alpha.toString());
+        var newt4 = document.createElement("transform");
+        newt3.appendChild(newt4);
+        beta = -Math.atan2(xhat[2],xhat[0]);
+        newt4.setAttribute("rotation",yhat[0].toString() + " " + yhat[1].toString() + " " + yhat[2].toString() + " "+ beta.toString());
+
+        var newt5 = document.createElement("transform");
+        newt4.appendChild(newt5);
+        gamma = Math.atan2(yhat[2],yhat[1]);
+        newt5.setAttribute("rotation",xhat[0].toString() + " " + xhat[1].toString() + " " + xhat[2].toString() + " "+ gamma.toString());
+        newt5.appendChild(news);
+
+        var newa = document.createElement("appearance");
+        news.appendChild(newa);
+        var newm = document.createElement("material");
+        newm.setAttribute("diffuseColor",solidColor);
+        newa.appendChild(newm);
+        var newb = document.createElement("text");
+        news.appendChild(newb);
+        newb.setAttribute("string",currentWord);
+        currentWord = "";
+        currentHTML = "";
     }
     if(localCommand == 0750){
         //rotate around yhat axis, so leave yhat fixed;
@@ -323,4 +382,10 @@
         xhat = xhatprime;
         yhat = yhatprime;
         zhat = zhatprime;
+    }
+    if(localCommand == 0756){
+        thetaStep3d /= 2;
+    }
+    if(localCommand == 0757){
+        thetaStep3d *= 2;
     }
