@@ -185,6 +185,7 @@ function drawcursor(){
 <?php
     echo file_get_contents("javascript/pageevents.txt");
 ?>
+
 </script>
 
 </body>

@@ -389,3 +389,33 @@
     if(localCommand == 0757){
         thetaStep3d *= 2;
     }
+    if(localCommand == 0760){
+        //start a new 2d glyph
+        ctx = document.getElementById("mainCanvas").getContext("2d");
+        ctx.clearRect(0,0,100,100);
+        ctx.strokeStyle= "black";
+        ctx.fillStyle= "white";
+        ctx.fillRect(0,0,100,100);
+        ctx.strokeRect(1,1,98,98);
+        ctx.lineWidth = 1;    	
+        unit = 25;
+        x0 = 50;
+        y0 = 50;
+        doTheThing(0300);
+    }
+    if(localCommand == 0761){
+        //drop glyph onto most recent 3d thing whatever that is
+    //    convert canvas to png base 64, then put that into the url field of ImageTexture 
+        
+        var pngurl64 = document.getElementById("mainCanvas").toDataURL();
+        var newit = document.createElement("ImageTexture");
+        var apps = document.getElementsByTagName("appearance");
+        var newm = document.createElement("material");
+        var oldm = apps[apps.length -1].getElementsByTagName("material")[0];
+        apps[apps.length -1].removeChild(oldm);
+        apps[apps.length -1].appendChild(newm);
+        apps[apps.length -1].appendChild(newit);
+        newit.url = pngurl64;
+
+    }
+

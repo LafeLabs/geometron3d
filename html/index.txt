@@ -8,6 +8,7 @@
         </scene>
     </x3d>
 </div>
+<canvas id = "mainCanvas"></canvas>
 <div id = "spellbox">
     <input id = "spellinput"/>
     <canvas id = "spellcanvas"></canvas>
@@ -34,7 +35,7 @@
 #x3dbox{
     position:absolute;
     left:100px;
-    right:100px;
+    right:500px;
     top:40px;
     bottom:100px;
 }
@@ -60,5 +61,12 @@
     bottom:0px;
     left:0px;
     border:solid;
+}
+#mainCanvas{
+    position:absolute;
+    right:0px;
+    top:100px;
+    border:solid;
+    background-color:white;
 }
 </style>

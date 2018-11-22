@@ -27,6 +27,8 @@ doTheThing(07);
 doTheThing(06);
 
 
+document.getElementById("mainCanvas").width = 100;
+document.getElementById("mainCanvas").height = 100;
 
 currentGlyph = currentJSON.glyph;
 main = document.getElementById("main");
