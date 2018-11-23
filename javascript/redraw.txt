@@ -3,7 +3,6 @@
     main.innerHTML = "";
     doTheThing(0700);
     drawGlyph(currentGlyph);
-    document.getElementById("spellinput").value = currentGlyph;
     document.getElementById("spellinput").style.width = (currentGlyph.length*1.5).toString() + "em";
     document.getElementById("spellcanvas").width = 25*currentGlyph.length;
     document.getElementById("spellcanvas").height = 50;
@@ -17,7 +16,17 @@
     x = 5;
     y = 45;
     spellGlyph(currentGlyph);
-    currentJSON.glyph = currentGlyph;
+    
+    var glyphArray = currentGlyph.split(",");
+    cleanGlyph = "";
+    for(var index = 0;index < glyphArray.length;index++){
+        if(glyphArray[index] != "0207" && glyphArray[index].length > 0){
+            cleanGlyph += glyphArray[index] + ",";
+        }
+    }
+    currentJSON.glyph = cleanGlyph;
+    document.getElementById("spellinput").value = cleanGlyph;
+    
     data = encodeURIComponent(JSON.stringify(currentJSON,null, "    "));
     currentFile = "json/currentjson.txt";
     var httpc = new XMLHttpRequest();

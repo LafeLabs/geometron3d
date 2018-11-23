@@ -4,6 +4,7 @@ styleJSON = JSON.parse(document.getElementById("stylejsondiv").innerHTML);
 document.getElementById("actioninput").select();
 //unit = 1;
 unit3d = 1;
+arrowkey = false;
 side3d  = unit3d;
 r = [0,0,0];
 xhat = [unit3d,0,0];
@@ -30,7 +31,7 @@ doTheThing(06);
 document.getElementById("mainCanvas").width = 100;
 document.getElementById("mainCanvas").height = 100;
 
-currentGlyph = currentJSON.glyph;
+currentGlyph = currentJSON.glyph + "0207,";
 main = document.getElementById("main");
 currentx3d = "";
 transformIndex = 0;

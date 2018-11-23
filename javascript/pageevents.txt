@@ -1,7 +1,30 @@
 
-document.getElementById("actioninput").onkeyup = function(e){
+document.getElementById("actioninput").onkeydown = function(e){
     charCode = e.keyCode || e.which;
-    if(charCode == 010){
+
+        arrowkey = false;
+        if(e.key == "ArrowUp"){
+            arrowkey = true;
+        }
+        if(charCode == 010){
+            doTheThing(010);
+            redraw();
+            arrowkey = true;
+        }
+        if(charCode == 045){
+            doTheThing(020);
+            redraw();
+            arrowkey = true;
+
+        }
+        if(charCode == 047){
+            doTheThing(021);
+            redraw();
+            arrowkey = true;
+
+        }
+
+/*    if(charCode == 010){
         var glypharray = currentGlyph.split(",");
         var newglyph = "";
         for(var index =0;index < glypharray.length-2;index++){
@@ -9,20 +32,50 @@ document.getElementById("actioninput").onkeyup = function(e){
         }
         currentGlyph = newglyph;
         redraw();
-    }
+    }*/
     
     
 }
 
 document.getElementById("actioninput").onkeypress = function(a){//action
     charCode = a.keyCode || a.which;
-    if(charCode != 010){
+    /*if(charCode != 010){
         if(parseInt(currentTable[charCode],8) >= 0600){
             currentGlyph +=  currentTable[charCode] + ",";
         } 
         this.value = "";
         redraw();
+    }*/
+    
+    if(charCode != 010 && charCode != 047 && charCode != 050  && !arrowkey){
+            
+        if(parseInt(currentTable[charCode],8) >= 0200){
+            var glyphSplit = currentGlyph.split(",");
+            currentGlyph = "";
+            for(var index = 0;index < glyphSplit.length;index++){
+                if(glyphSplit[index].length > 0 && glyphSplit[index] != "0207"){
+                    currentGlyph += glyphSplit[index] + ",";
+                }
+                if(glyphSplit[index] == "0207"){
+                    currentGlyph += currentTable[charCode] + ",0207,";
+                }
+            }
+            var glyphSplit = currentGlyph.split(",");
+            currentGlyph = "";
+            for(var index = 0;index < glyphSplit.length;index++){
+                if(glyphSplit[index].length > 0  && parseInt(glyphSplit[index]) >= 040){
+                    currentGlyph += glyphSplit[index] + ",";
+                }
+            }
+            redraw();
+        } 
+        if(parseInt(currentTable[charCode],8) < 040){
+            doTheThing(parseInt(currentTable[charCode],8));
+            redraw();
+        }
+        this.value = "";
     }
+
 
 }
 
