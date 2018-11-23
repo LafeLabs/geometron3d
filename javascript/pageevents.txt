@@ -30,3 +30,7 @@ document.getElementById("spellinput").onchange = function(){
     currentGlyph = this.value;
     redraw();
 }
+
+window.onload = function(){
+    redraw();
+}
