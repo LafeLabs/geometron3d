@@ -55,7 +55,7 @@ EGO DEATH:
     <div class = "javascript file">javascript/pageevents.txt</div>
 
     <div class = "php file">php/index.txt</div>
-    <div class = "php file">php/shapetableeditor.php</div>
+    <div class = "php file">php/shapetableeditor.txt</div>
     <div class = "php file">php/editor.txt</div>
     <div class = "php file">php/replicator.txt</div>
     <div class = "php file">php/filesaver.txt</div>
