@@ -24,6 +24,23 @@ document.getElementById("actioninput").onkeydown = function(e){
 
         }
 
+        if(charCode == 046){
+//        doTheThing(023);
+            currentAddress++;
+            currentGlyph = currentTable[currentAddress] + ",0207,";
+            redraw();
+            arrowkey = true;
+            document.getElementById("addressinput").value = "0" + currentAddress.toString(8);
+        }
+        if(charCode == 050){
+//        doTheThing(022);
+            currentAddress--;
+            currentGlyph = currentTable[currentAddress] + ",0207,";
+            redraw();
+            arrowkey = true;
+            document.getElementById("addressinput").value = "0" + currentAddress.toString(8);
+        }   
+
 /*    if(charCode == 010){
         var glypharray = currentGlyph.split(",");
         var newglyph = "";

@@ -76,6 +76,18 @@ if(isset($_GET['path'])){
 
 ?>
 */</script>
+<script>
+    
+function drawcursor(){
+
+<?php
+    echo file_get_contents("javascript/drawcursor.txt");
+?>
+
+    
+}
+</script>
+
 <script id = "actions">
 function doTheThing(localCommand){    
     if(localCommand >= 040 && localCommand <= 0176){
@@ -171,14 +183,7 @@ function redraw(){
     echo file_get_contents("javascript/redraw.txt");
 ?>
 }
-function drawcursor(){
 
-<?php
-    echo file_get_contents("javascript/drawcursor.txt");
-?>
-
-    
-}
 </script>
 
 <script id = "pageevents">

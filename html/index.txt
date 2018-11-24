@@ -1,6 +1,8 @@
 <a href = "editor.php">editor.php</a>
 <a href = "shapetableeditor.php">shapetableeditor.php</a>
+
 <input id = "actioninput"/>
+<input id = "addressinput"/>
 
 <div id = "x3dbox">
     <x3d id = "mainx3d">
@@ -35,7 +37,7 @@
 #x3dbox{
     position:absolute;
     left:100px;
-    right:500px;
+    right:100px;
     top:40px;
     bottom:100px;
 }
@@ -55,6 +57,15 @@
     width:1em;
     border-radius:5px;
     border-color:green;
+}
+#addressinput{
+    position:absolute;
+    right:0px;
+    top:2em;
+    border:solid;
+    width:3em;
+    border-radius:5px;
+    border-color:blue;
 }
 #spellcanvas{
     position:absolute;

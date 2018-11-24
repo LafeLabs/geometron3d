@@ -26,9 +26,18 @@
     }
     currentJSON.glyph = cleanGlyph;
     document.getElementById("spellinput").value = cleanGlyph;
+    currentTable[currentAddress] = cleanGlyph;
     
-    data = encodeURIComponent(JSON.stringify(currentJSON,null, "    "));
-    currentFile = "json/currentjson.txt";
+    
+    currentFile = "bytecode/shapes06xx.txt";
+    data = "";
+    for(var index = 0600;index < 0700;index++){
+        if(currentTable[index].length > 2){
+            data += "0" + index.toString(8) + ":" + currentTable[index] + "\n";
+        }
+    }    
+//    data = encodeURIComponent(JSON.stringify(currentJSON,null, "    "));
+  //  currentFile = "json/currentjson.txt";
     var httpc = new XMLHttpRequest();
     var url = "filesaver.php";        
     httpc.open("POST", url, true);

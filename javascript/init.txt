@@ -27,11 +27,26 @@ doTheThing(07);
 
 doTheThing(06);
 
+        ctx = document.getElementById("mainCanvas").getContext("2d");
+        ctx.clearRect(0,0,100,100);
+        ctx.strokeStyle= "black";
+        ctx.fillStyle= "white";
+        ctx.fillRect(0,0,100,100);
+        ctx.strokeRect(1,1,98,98);
+        ctx.lineWidth = 1;    	
+        unit = 98;
+        x0 = 0;
+        y0 = 98;
+        doTheThing(0300);
+
 
 document.getElementById("mainCanvas").width = 100;
 document.getElementById("mainCanvas").height = 100;
 
-currentGlyph = currentJSON.glyph + "0207,";
+currentAddress = 0600;
+document.getElementById("addressinput").value = "0" + currentAddress.toString(8);
+currentGlyph = currentTable[currentAddress] + "0207";
+//currentGlyph = currentJSON.glyph + "0207,";
 main = document.getElementById("main");
 currentx3d = "";
 transformIndex = 0;
