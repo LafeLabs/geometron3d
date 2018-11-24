@@ -12,6 +12,9 @@
         beta = 0;
         gamma = 0;
     }
+    if(localCommand == 0707){
+        drawcursor();
+    }
     if(localCommand == 0710){
         scale3d = 2;
     }

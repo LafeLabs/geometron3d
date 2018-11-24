@@ -9,7 +9,7 @@
     ctx = document.getElementById("spellcanvas").getContext("2d");
     ctx.clearRect(0,0,document.getElementById("spellcanvas").width,document.getElementById("spellcanvas").height);
 
-    drawcursor();
+//    drawcursor();
 
     doTheThing(0300);
     side = 40;
