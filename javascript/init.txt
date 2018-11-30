@@ -53,4 +53,4 @@ transformIndex = 0;
 transforms = [];
 doTheThing(0700);
 drawGlyph(currentGlyph);
-
+mostRecentSymbolAction = 01177;

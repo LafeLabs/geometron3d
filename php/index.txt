@@ -106,7 +106,8 @@ function doTheThing(localCommand){
     }
 
     if(localCommand >= 01000 && localCommand <= 01777){//symbol glyphs
-            drawGlyph(currentTable[localCommand]);    	    
+            drawGlyph(currentTable[localCommand]);    
+            mostRecentSymbolAction = localCommand - 01000;
     } 
     <?php
     echo file_get_contents("javascript/actions03xx.txt");

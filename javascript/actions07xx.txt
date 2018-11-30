@@ -11,6 +11,7 @@
         alpha = 0;
         beta = 0;
         gamma = 0;
+        mostRecentSymbolAction = 01177;
     }
     if(localCommand == 0707){
         drawcursor();
@@ -401,9 +402,9 @@
         ctx.fillRect(0,0,100,100);
         ctx.strokeRect(1,1,98,98);
         ctx.lineWidth = 1;    	
-        unit = 25;
-        x0 = 50;
-        y0 = 50;
+        unit = 98;
+        x0 = 1;
+        y0 = 99;
         doTheThing(0300);
     }
     if(localCommand == 0761){
@@ -419,6 +420,16 @@
         apps[apps.length -1].appendChild(newm);
         apps[apps.length -1].appendChild(newit);
         newit.url = pngurl64;
+        var boxes = document.getElementsByTagName("box");
+        
+        var newdatap = document.createElement("p");
+        newdatap.className = "datap";
+        newdatap.style.display = "none";
+        newdatap.innerHTML = "0" + mostRecentSymbolAction.toString(8);
+        boxes[boxes.length - 1].appendChild(newdatap);
+        boxes[boxes.length - 1].onclick=  function(){
+            keyaction(parseInt(this.getElementsByClassName("datap")[0].innerHTML,8));
+        }
 
     }
 
