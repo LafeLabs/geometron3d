@@ -163,16 +163,18 @@
 
     }
     if(localCommand == 022){//previous glyph in table
-        if(shapeTableEditMode){
-            currentAddress--;
-            currentGlyph = currentTable[currentAddress] + ",0207,";
-        }
+        currentAddress--;
+        currentGlyph = currentTable[currentAddress] + ",0207,";
+        redraw();
+        arrowkey = true;
+        document.getElementById("addressinput").value = "0" + currentAddress.toString(8);
     }
     if(localCommand == 023){//next glyph in table
-        if(shapeTableEditMode){
-            currentAddress++;
-            currentGlyph = currentTable[currentAddress] + ",0207,";
-        }
+        currentAddress++;
+        currentGlyph = currentTable[currentAddress] + ",0207,";
+        redraw();
+        arrowkey = true;
+        document.getElementById("addressinput").value = "0" + currentAddress.toString(8);
     }
     
     if(localCommand == 030){
