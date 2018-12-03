@@ -10,6 +10,9 @@
         </scene>
     </x3d>
 </div>
+<table id = "softkeypad">
+</table>
+
 <canvas id = "mainCanvas"></canvas>
 <div id = "spellbox">
     <input id = "spellinput"/>
@@ -80,4 +83,19 @@
     border:solid;
     background-color:white;
 }
+#softkeypad{
+    position:absolute;
+    right:0px;
+    bottom:100px;
+}
+#softkeypad td{
+    cursor:pointer;
+}
+#softkeypad td:hover{
+    background-color:green;
+}
+#softkeypad td:active{
+    background-color:yellow;
+}
+
 </style>
