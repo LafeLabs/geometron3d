@@ -43,6 +43,7 @@
 		"path":"bytecode",
 		"files":[
 			"baseshapes.txt",
+			"font.txt",
 			"keyboard.txt",
 			"shapes016xx.txt",
 			"shapes06xx.txt",
