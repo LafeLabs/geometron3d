@@ -1,5 +1,17 @@
-<a href = "editor.php">editor.php</a>
-<a href = "shapetableeditor.php">shapetableeditor.php</a>
+<table id = "linktable">
+    <tr>
+        <td>
+            <a href = "editor.php">
+                <img src = "mapicons/editor.svg"/>
+            </a>
+        </td>
+        <td>
+            <a href = "shapetableeditor.php">
+                <img src = "mapicons/hypercube.svg"/>
+            </a>
+        </td>
+    </tr>
+</table>
 
 <input id = "actioninput"/>
 <input id = "addressinput"/>
@@ -97,5 +109,12 @@
 #softkeypad td:active{
     background-color:yellow;
 }
-
+#linktable{
+    position:absolute;
+    left:0px;
+    top:0px;
+}
+#linktable img{
+    width:50px;
+}
 </style>

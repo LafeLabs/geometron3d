@@ -126,7 +126,7 @@ function doTheThing(localCommand){
         newdatap.innerHTML = "0" + localCommand.toString(8);
         boxes[boxes.length - 1].appendChild(newdatap);
         boxes[boxes.length - 1].onclick = function(){
-            location.href = byteCode2string(currentTable[parseInt(this.getElementsByClassName("datap")[0].innerHTML,8)]);
+            location.href = "index.php?glyph=" + currentTable[parseInt(this.getElementsByClassName("datap")[0].innerHTML,8)];
         }
 
     }

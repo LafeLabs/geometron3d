@@ -13,6 +13,14 @@
 		]
 	},
 	{
+		"path":"mapicons",
+		"files":[
+			"editor.svg",
+			"geometron3d.svg",
+			"hypercube.svg"
+		]
+	},
+	{
 		"path":"html",
 		"files":[
 			"index.txt"
