@@ -83,6 +83,10 @@ document.getElementById("mainCanvas").height = 100;
 
 currentAddress = 0600;
 document.getElementById("addressinput").value = "0" + currentAddress.toString(8);
+
+if(document.getElementById("extglyphdiv").innerHTML.length > 1){
+    currentTable[currentAddress] = document.getElementById("extglyphdiv").innerHTML;
+}
 currentGlyph = currentTable[currentAddress] + "0207";
 //currentGlyph = currentJSON.glyph + "0207,";
 main = document.getElementById("main");

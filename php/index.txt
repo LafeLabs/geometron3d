@@ -63,7 +63,7 @@ echo file_get_contents("bytecode/symbols017xx.txt")."\n";
 echo file_get_contents("bytecode/symbols016xx.txt")."\n";
 
 echo file_get_contents("bytecode/shapes06xx.txt")."\n";
-
+echo file_get_contents("bytecode/shapes04xx.txt")."\n";
 
 if(isset($_GET['path'])){
     if(file_exists("symbols/".$_GET['path']."/bytecode/shapetable.txt")){
@@ -72,6 +72,11 @@ if(isset($_GET['path'])){
     if(file_exists("symbols/".$_GET['path']."/bytecode/font.txt")){
         echo file_get_contents("symbols/".$_GET['path']."/bytecode/font.txt");
     }
+}
+
+
+if(isset($_GET['data'])){
+    echo file_get_contents($_GET['data']);
 }
 
 
@@ -104,6 +109,26 @@ function doTheThing(localCommand){
         if(!(localCommand == 0207 && editMode == false) ){
             drawGlyph(currentTable[localCommand]);    	    
         }
+    }
+    if(localCommand >= 0500 && localCommand <= 0577){//srcs 
+        if(localCommand == 0500){
+            current05xx = "";
+        }
+        else{
+            current05xx = localCommand;
+        }
+    }
+    if(localCommand >= 0400 && localCommand <= 0477){//srcs 
+        var boxes = document.getElementsByTagName("shape");
+        var newdatap = document.createElement("p");
+        newdatap.className = "datap";
+        newdatap.style.display = "none";
+        newdatap.innerHTML = "0" + localCommand.toString(8);
+        boxes[boxes.length - 1].appendChild(newdatap);
+        boxes[boxes.length - 1].onclick = function(){
+            location.href = byteCode2string(currentTable[parseInt(this.getElementsByClassName("datap")[0].innerHTML,8)]);
+        }
+
     }
 
     if(localCommand >= 01000 && localCommand <= 01777){//symbol glyphs
@@ -153,6 +178,13 @@ echo file_get_contents("javascript/topfunctions.txt");
     }
 ?>
 </div>    
+<div id = "extglyphdiv" style = "display:none"><?php
+
+if(isset($_GET['glyph'])){
+    echo $_GET['glyph'];
+}
+
+?></div>
 <div id = "extdatadiv" style = "display:none"><?php
 if(isset($_GET['url'])){
     $urlfilename = $_GET['url'];

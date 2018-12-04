@@ -420,16 +420,6 @@
         apps[apps.length -1].appendChild(newm);
         apps[apps.length -1].appendChild(newit);
         newit.url = pngurl64;
-        var boxes = document.getElementsByTagName("box");
-        
-        var newdatap = document.createElement("p");
-        newdatap.className = "datap";
-        newdatap.style.display = "none";
-        newdatap.innerHTML = "0" + mostRecentSymbolAction.toString(8);
-        boxes[boxes.length - 1].appendChild(newdatap);
-        boxes[boxes.length - 1].onclick=  function(){
-            keyaction(parseInt(this.getElementsByClassName("datap")[0].innerHTML,8));
-        }
 
     }
 
