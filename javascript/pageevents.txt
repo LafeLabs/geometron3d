@@ -109,3 +109,16 @@ function keyaction(localaction){
         redraw();
     }
 }
+
+document.getElementById("addressinput").onchange = function(){
+    currentAddress = parseInt(this.value,8);
+    currentGlyph = currentTable[currentAddress] + "0207";
+    currentx3d = "";
+    transformIndex = 0;
+    transforms = [];
+    doTheThing(0700);
+    drawGlyph(currentGlyph);
+    redraw();
+}
+
+

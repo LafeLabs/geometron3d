@@ -126,7 +126,8 @@ function doTheThing(localCommand){
         newdatap.innerHTML = "0" + localCommand.toString(8);
         boxes[boxes.length - 1].appendChild(newdatap);
         boxes[boxes.length - 1].onclick = function(){
-            location.href = "index.php?glyph=" + currentTable[parseInt(this.getElementsByClassName("datap")[0].innerHTML,8)];
+            //location.href = "index.php?glyph=" + currentTable[parseInt(this.getElementsByClassName("datap")[0].innerHTML,8)];
+            location.href = "index.php?address=" + this.getElementsByClassName("datap")[0].innerHTML;
         }
 
     }
@@ -185,6 +186,13 @@ if(isset($_GET['glyph'])){
 }
 
 ?></div>
+<div id = "address" style = "display:none"><?php
+
+if(isset($_GET['address'])){
+    echo $_GET['address'];
+}
+
+?></div>
 <div id = "extdatadiv" style = "display:none"><?php
 if(isset($_GET['url'])){
     $urlfilename = $_GET['url'];
@@ -197,11 +205,12 @@ if(isset($_GET['url'])){
     else{
         echo file_get_contents($_GET['url']);
     }
-}?>
-</div>
+}?></div>
+
 <?php
     echo file_get_contents("html/index.txt");
 ?>
+
 <script id = "init">
 init();
 function init(){

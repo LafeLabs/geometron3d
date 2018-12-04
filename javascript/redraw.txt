@@ -29,13 +29,28 @@
     currentTable[currentAddress] = cleanGlyph;
     
     
-    currentFile = "bytecode/shapes06xx.txt";
-    data = "";
-    for(var index = 0600;index < 0700;index++){
-        if(currentTable[index].length > 2){
-            data += "0" + index.toString(8) + ":" + currentTable[index] + "\n";
-        }
-    }    
+    if(currentAddress >= 0600 && currentAddress <= 0677){
+        currentFile = "bytecode/shapes06xx.txt";
+        data = "";
+        for(var index = 0600;index < 0700;index++){
+            if(currentTable[index].length > 2){
+                data += "0" + index.toString(8) + ":" + currentTable[index] + "\n";
+            }
+        }            
+    }
+    if(currentAddress >= 0400 && currentAddress <= 0477){
+        currentFile = "bytecode/shapes04xx.txt";
+        data = "";
+        for(var index = 0400;index < 0500;index++){
+            if(currentTable[index].length > 2){
+                data += "0" + index.toString(8) + ":" + currentTable[index] + "\n";
+            }
+        }                   
+    }
+
+
+    
+    
 //    data = encodeURIComponent(JSON.stringify(currentJSON,null, "    "));
   //  currentFile = "json/currentjson.txt";
     var httpc = new XMLHttpRequest();

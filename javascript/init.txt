@@ -81,7 +81,13 @@ doTheThing(0300);
 document.getElementById("mainCanvas").width = 100;
 document.getElementById("mainCanvas").height = 100;
 
-currentAddress = 0600;
+if(document.getElementById("address").innerHTML.length > 1){
+    currentAddress = parseInt(document.getElementById("address").innerHTML,8);
+}
+else{
+    currentAddress = 0600;
+}
+
 document.getElementById("addressinput").value = "0" + currentAddress.toString(8);
 
 if(document.getElementById("extglyphdiv").innerHTML.length > 1){

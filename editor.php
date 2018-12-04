@@ -38,10 +38,12 @@ EGO DEATH:
     <div class = "bytecode file">bytecode/font.txt</div>
     <div class = "bytecode file">bytecode/keyboard.txt</div>
     <div class = "bytecode file">bytecode/symbolkeyboard.txt</div>
-    <div class = "bytecode file">bytecode/symbols013xx.txt</div>
     <div class = "bytecode file">bytecode/symbols010xx.txt</div>
-    <div class = "bytecode file">bytecode/symbols017xx.txt</div>
+    <div class = "bytecode file">bytecode/symbols013xx.txt</div>
+    <div class = "bytecode file">bytecode/symbols014xx.txt</div>
+    <div class = "bytecode file">bytecode/symbols015xx.txt</div>
     <div class = "bytecode file">bytecode/symbols016xx.txt</div>
+    <div class = "bytecode file">bytecode/symbols017xx.txt</div>
     <div class = "bytecode file">bytecode/shapes06xx.txt</div>
     <div class = "bytecode file">bytecode/shapes04xx.txt</div>
 
@@ -52,7 +54,6 @@ EGO DEATH:
     <div class = "javascript file">javascript/init.txt</div>
     <div class = "javascript file">javascript/redraw.txt</div>
     <div class = "javascript file">javascript/drawcursor.txt</div>
-
     <div class = "javascript file">javascript/pageevents.txt</div>
 
     <div class = "php file">php/index.txt</div>
