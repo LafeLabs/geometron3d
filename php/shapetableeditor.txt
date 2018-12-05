@@ -19,6 +19,7 @@ echo file_get_contents("bytecode/symbols016xx.txt")."\n";
 echo file_get_contents("bytecode/symbols015xx.txt")."\n";
 echo file_get_contents("bytecode/symbols014xx.txt")."\n";
 
+echo file_get_contents("bytecode/shapes05xx.txt")."\n";
 echo file_get_contents("bytecode/shapes06xx.txt")."\n";
 
 
@@ -351,6 +352,17 @@ if(currentAddress >= 01040 && currentAddress < 01177){
             }
         }
     }
+}
+
+if(currentAddress >= 0500 && currentAddress <= 0577){
+    //byteCode2string(document.getElementById("glyphspellinput").value = currentTable[currentAddress]);
+    currentFile = "bytecode/shapes05xx.txt";
+    data = "";
+        for(var index = 0500;index < 0577;index++){
+            if(currentTable[index].length > 2){
+                data += "0" + index.toString(8) + ":" + currentTable[index] + "\n";
+            }
+        }
 }
 
 if(currentAddress >= 01700 && currentAddress <= 01777){
