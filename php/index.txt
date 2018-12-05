@@ -61,6 +61,8 @@ echo file_get_contents("bytecode/symbols013xx.txt")."\n";
 echo file_get_contents("bytecode/symbols010xx.txt")."\n";
 echo file_get_contents("bytecode/symbols017xx.txt")."\n";
 echo file_get_contents("bytecode/symbols016xx.txt")."\n";
+echo file_get_contents("bytecode/symbols014xx.txt")."\n";
+echo file_get_contents("bytecode/symbols015xx.txt")."\n";
 
 echo file_get_contents("bytecode/shapes06xx.txt")."\n";
 echo file_get_contents("bytecode/shapes04xx.txt")."\n";
@@ -129,7 +131,9 @@ function doTheThing(localCommand){
             //location.href = "index.php?glyph=" + currentTable[parseInt(this.getElementsByClassName("datap")[0].innerHTML,8)];
             location.href = "index.php?address=" + this.getElementsByClassName("datap")[0].innerHTML;
         }
-
+        doTheThing(0760);
+        doTheThing(localCommand + 01000);
+        doTheThing(0761);
     }
 
     if(localCommand >= 01000 && localCommand <= 01777){//symbol glyphs

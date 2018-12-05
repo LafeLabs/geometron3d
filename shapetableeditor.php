@@ -16,6 +16,9 @@ echo file_get_contents("bytecode/symbols013xx.txt")."\n";
 echo file_get_contents("bytecode/symbols010xx.txt")."\n";
 echo file_get_contents("bytecode/symbols017xx.txt")."\n";
 echo file_get_contents("bytecode/symbols016xx.txt")."\n";
+echo file_get_contents("bytecode/symbols015xx.txt")."\n";
+echo file_get_contents("bytecode/symbols014xx.txt")."\n";
+
 echo file_get_contents("bytecode/shapes06xx.txt")."\n";
 
 
@@ -168,8 +171,22 @@ function doTheThing(localCommand){
 ?>
 </div>    
 <div id = "page">
-    <a  id = "editorlink" href = "editor.php">EDITOR</a>
-    <a  id = "factorylink" href = "index.php">INDEX</a>
+
+<table id = "linktable">
+    <tr>
+        <td>
+            <a href = "editor.php">
+                <img src = "mapicons/editor.svg"/>
+            </a>
+        </td>
+        <td>
+            <a href = "index.php">
+                <img src = "mapicons/geometron3d.svg"/>
+            </a>
+        </td>
+    </tr>
+</table>
+
 
     <canvas id="invisibleCanvas" style="display:none"></canvas>
     <canvas id="mainCanvas"></canvas>
@@ -346,6 +363,32 @@ if(currentAddress >= 01700 && currentAddress <= 01777){
         currentFile = "bytecode/symbols017xx.txt";
         data = "";
         for(var index = 01700;index < 01777;index++){
+            if(currentTable[index].length > 2){
+                data += "0" + index.toString(8) + ":" + currentTable[index] + "\n";
+            }
+        }
+    }
+}
+if(currentAddress >= 01500 && currentAddress <= 01577){
+    if(path.length > 1){
+    }
+    else{
+        currentFile = "bytecode/symbols015xx.txt";
+        data = "";
+        for(var index = 01500;index < 01577;index++){
+            if(currentTable[index].length > 2){
+                data += "0" + index.toString(8) + ":" + currentTable[index] + "\n";
+            }
+        }
+    }
+}
+if(currentAddress >= 01400 && currentAddress <= 01477){
+    if(path.length > 1){
+    }
+    else{
+        currentFile = "bytecode/symbols015xx.txt";
+        data = "";
+        for(var index = 01400;index < 01477;index++){
             if(currentTable[index].length > 2){
                 data += "0" + index.toString(8) + ":" + currentTable[index] + "\n";
             }
@@ -774,10 +817,6 @@ table{
     left:15px;
     top:40%;
 }
-img{
-    position:absolute;
-    z-index:-2;
-}
 #mainImage{
     position:absolute;
     z-index:-2;
@@ -808,6 +847,15 @@ img{
     border-radius:5px;
     border:solid;
     padding:5px 5px 5px 5px;
+}
+#linktable{
+    position:absolute;
+    right:0px;
+    top:0px;
+    z-index:5;
+}
+#linktable img{
+    height:50px;
 }
 </style>
 
