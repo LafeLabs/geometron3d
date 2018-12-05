@@ -45,6 +45,7 @@ EGO DEATH:
     <div class = "bytecode file">bytecode/symbols016xx.txt</div>
     <div class = "bytecode file">bytecode/symbols017xx.txt</div>
     <div class = "bytecode file">bytecode/shapes06xx.txt</div>
+    <div class = "bytecode file">bytecode/shapes05xx.txt</div>
     <div class = "bytecode file">bytecode/shapes04xx.txt</div>
 
     <div class = "javascript file">javascript/topfunctions.txt</div>

@@ -237,10 +237,7 @@ function init(){
                 currentTable[localAddress] = localBytecode[1];
             }
         }
-
-
     }
-
 
 
     currentJSON = JSON.parse(document.getElementById("datadiv").innerHTML);

@@ -65,6 +65,7 @@ echo file_get_contents("bytecode/symbols014xx.txt")."\n";
 echo file_get_contents("bytecode/symbols015xx.txt")."\n";
 
 echo file_get_contents("bytecode/shapes06xx.txt")."\n";
+echo file_get_contents("bytecode/shapes05xx.txt")."\n";
 echo file_get_contents("bytecode/shapes04xx.txt")."\n";
 
 if(isset($_GET['path'])){
@@ -113,12 +114,21 @@ function doTheThing(localCommand){
         }
     }
     if(localCommand >= 0500 && localCommand <= 0577){//srcs 
-        if(localCommand == 0500){
-            current05xx = "";
+        
+        var boxes = document.getElementsByTagName("shape");
+        var newdatap = document.createElement("p");
+        newdatap.className = "datap";
+        newdatap.style.display = "none";
+        newdatap.innerHTML = "0" + localCommand.toString(8);
+        boxes[boxes.length - 1].appendChild(newdatap);
+        boxes[boxes.length - 1].onclick = function(){
+        //location.href = "index.php?glyph=" + currentTable[parseInt(this.getElementsByClassName("datap")[0].innerHTML,8)];
+            location.href = byteCode2string(currentTable[parseInt(this.getElementsByClassName("datap")[0].innerHTML,8)]);
         }
-        else{
-            current05xx = localCommand;
-        }
+        doTheThing(0760);
+        doTheThing(localCommand + 01000);
+        doTheThing(0761);        
+        
     }
     if(localCommand >= 0400 && localCommand <= 0477){//srcs 
         var boxes = document.getElementsByTagName("shape");
