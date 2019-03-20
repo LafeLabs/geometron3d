@@ -17,6 +17,19 @@ solidColor = "1 0 0";
 scale3d = 2;
 thetaStep3d = Math.PI;
 
+quantumAngles = [];
+
+for(var localt = 0;localt < 100;localt++){
+    var localangles = {};
+    localangles.theta0 = 2*Math.PI*localt/100;
+    localangles.phi = 2*Math.PI*localt/10;
+    quantumAngles.push(localangles);
+}
+
+currentQuantumAngles = quantumAngles[0];
+
+document.getElementById("textio").value = JSON.stringify(quantumAngles,null," ");
+
 transformIndex = 0;
 currentTable = []; 
 for(var index = 0;index < 01777;index ++){

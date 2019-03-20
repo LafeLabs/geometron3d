@@ -120,5 +120,14 @@ document.getElementById("addressinput").onchange = function(){
     drawGlyph(currentGlyph);
     redraw();
 }
+document.getElementById("gobutton").onclick = function(){
+    quantumAngles =  JSON.parse(document.getElementById("textio").value);
+    
+    for(var index = 0;index < quantumAngles.length;index++){
+        currentQuantumAngles = quantumAngles[index];
+        redraw();
+        console.log(currentQuantumAngles.theta0);
+    }
+}
 
 

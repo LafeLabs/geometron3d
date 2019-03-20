@@ -12,7 +12,8 @@
         </td>
     </tr>
 </table>
-
+<textarea id = "textio"></textarea>
+<div id = "gobutton"></div>
 <input id = "actioninput"/>
 <input id = "addressinput"/>
 
@@ -116,5 +117,31 @@
 }
 #linktable img{
     width:50px;
+}
+#textio{
+    position:absolute;
+    left:0px;
+    top:25%;
+    width:5em;
+    border:solid;
+}
+#gobutton{
+    position:absolute;
+    top:70%;
+    width:4em;
+    height:4em;
+    background-color:green;
+    cursor:pointer;
+    border:solid;
+    border-color:black;
+    border-width:5px;
+    border-radius:2em;
+    z-index:5;
+}
+#gobutton:active{
+    background-color:blue;
+}
+#gobutton:hover{
+    background-color:#80ff80;
 }
 </style>

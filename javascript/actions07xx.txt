@@ -423,3 +423,9 @@
 
     }
 
+    if(localCommand == 0770){
+        var tempanglestep = thetaStep3d;
+        thetaStep3d = currentQuantumAngles.theta0;
+        doTheThing(0750);
+        thetaStep3d = tempanglestep;
+    }
