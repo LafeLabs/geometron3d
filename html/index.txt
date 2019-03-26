@@ -49,6 +49,7 @@
     right:0px;
     bottom:0px;
     top:0px;
+    z-index:10;
 }
 #x3dbox{
     position:absolute;
@@ -124,6 +125,7 @@
     top:25%;
     width:5em;
     border:solid;
+    z-index: 100;
 }
 #gobutton{
     position:absolute;
