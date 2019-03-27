@@ -84,7 +84,7 @@ window.onload = function(){
 
 
 function keyaction(localaction){
-    if(localaction >= 0200){
+    if(localaction >= 0200 && localaction != currentAddress){
         var glyphSplit = currentGlyph.split(",");
         currentGlyph = "";
         for(var index = 0;index < glyphSplit.length;index++){
