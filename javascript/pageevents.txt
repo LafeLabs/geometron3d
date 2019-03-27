@@ -64,7 +64,7 @@ document.getElementById("actioninput").onkeypress = function(a){//action
         redraw();
     }*/
     
-    if(charCode != 010 && charCode != 047 && charCode != 050  && !arrowkey){
+    if(charCode != 010 && charCode != 047 && charCode != 050  && !arrowkey && parseInt(currentTable[charCode],8) != currentAddress){
         thisaction = parseInt(currentTable[charCode],8);
         keyaction(thisaction);
         this.value = "";
