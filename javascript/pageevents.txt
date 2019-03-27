@@ -122,12 +122,18 @@ document.getElementById("addressinput").onchange = function(){
 }
 document.getElementById("gobutton").onclick = function(){
     quantumAngles =  JSON.parse(document.getElementById("textio").value);
-    
-    for(var index = 0;index < quantumAngles.length;index++){
-        currentQuantumAngles = quantumAngles[index];
+    quantumangleindex = 0;
+    var id = setInterval(frame, 1);
+    function frame(){
+      if(quantumangleindex == quantumAngles.length - 1){
+        clearInterval(id);
+      }else{
+        currentQuantumAngles = quantumAngles[quantumangleindex];
         redraw();
-        console.log(currentQuantumAngles.theta0);
+        quantumangleindex++;
+      }
     }
+    
 }
 
 

@@ -265,6 +265,7 @@
     }
     if(localCommand == 0750){
         //rotate around yhat axis, so leave yhat fixed;
+        console.log(thetaStep3d);
         var xhatprime = [1,0,0];
         var yhatprime = [0,1,0];
         var zhatprime = [0,0,1];
@@ -426,6 +427,7 @@
     if(localCommand == 0770){
         var tempanglestep = thetaStep3d;
         thetaStep3d = currentQuantumAngles.theta0;
+
         doTheThing(0750);
         thetaStep3d = tempanglestep;
     }
