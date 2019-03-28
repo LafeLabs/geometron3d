@@ -90,6 +90,10 @@
             }
         }
     }    
+    if(localCommand == 011){
+        //go!
+        document.getElementById("gobutton").click();
+    }
     //<page014>
     if(localCommand == 014){//export JSON        
         if(pages[currentPage].id == "div0660"){
