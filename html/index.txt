@@ -43,6 +43,7 @@
 </script>
 
 <style>
+
 #mainx3d{
     position:absolute;
     left:0px;
@@ -52,11 +53,11 @@
     z-index:10;
 }
 #x3dbox{
-    position:absolute;
-    left:100px;
-    right:100px;
-    top:40px;
-    bottom:100px;
+    position: absolute;
+    left: 1%;
+    right: 20%;
+    top: 7%;
+    bottom: 13%;
 }
 #spellbox{
     position:absolute;
@@ -68,8 +69,9 @@
 }
 #actioninput{
     position:absolute;
-    right:0px;
-    top:0px;
+    left: 17em;
+    top: 1%;
+
     border:solid;
     width:1em;
     border-radius:5px;
@@ -77,8 +79,9 @@
 }
 #addressinput{
     position:absolute;
-    right:0px;
-    top:2em;
+    left: 19em;
+    top: 1%;
+
     border:solid;
     width:3em;
     border-radius:5px;
@@ -92,52 +95,68 @@
 }
 #mainCanvas{
     position:absolute;
-    right:0px;
-    top:100px;
+    left: 12em;
+    top: 1%;
+
+    height: 20px;
+    width: 20px;
+
     border:solid;
     background-color:white;
 }
 #softkeypad{
-    position:absolute;
-    right:0px;
-    bottom:100px;
+    position: absolute;
+    right: 0px;
+    bottom: 11%;
+    z-index: 50;
+
+    height: 10%;
+    width: 20%;
 }
 #softkeypad td{
-    cursor:pointer;
+    cursor: pointer;
 }
 #softkeypad td:hover{
-    background-color:green;
+    background-color: green;
 }
 #softkeypad td:active{
-    background-color:yellow;
+    background-color: yellow;
 }
 #linktable{
     position:absolute;
     left:0px;
     top:0px;
+    z-index: -100;
 }
 #linktable img{
     width:50px;
 }
 #textio{
     position:absolute;
-    left:0px;
-    top:25%;
-    width:5em;
+    right: 0.1%;
+    top: 2%;
+
+    height: 41%;
+    width: 19.3%;
+
     border:solid;
     z-index: 100;
+    resize: none;
 }
 #gobutton{
     position:absolute;
-    top:70%;
+    top: 1%;
+    left: 7em;
+
     width:4em;
-    height:4em;
+    height:2em;
     background-color:green;
     cursor:pointer;
     border:solid;
     border-color:black;
     border-width:5px;
     border-radius:2em;
+
     z-index:5;
 }
 #gobutton:active{

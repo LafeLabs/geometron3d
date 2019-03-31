@@ -50,7 +50,7 @@ EGO DEATH:
 <script src="https://cdn.jsdelivr.net/npm/x3dom@1.7.2/x3dom.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/x3dom@1.7.2/x3dom.css">
 
-<script id = "bytecodeScript">/*
+<script id = "bytecodeScript">
 <?php
 
 echo file_get_contents("bytecode/baseshapes.txt")."\n";
@@ -99,21 +99,21 @@ function drawcursor(){
 
 <script id = "actions">
 function doTheThing(localCommand){    
-    if(localCommand >= 040 && localCommand <= 0176){
+    if(localCommand >= 0o40 && localCommand <= 0o176){
         currentHTML += String.fromCharCode(localCommand);
         currentWord += String.fromCharCode(localCommand);
     }
-    if(localCommand >= 0200 && localCommand <= 0277){//shapes 
-        if(!(localCommand == 0207 && editMode == false) ){
+    if(localCommand >= 0o200 && localCommand <= 0o277){//shapes
+        if(!(localCommand == 0o207 && editMode == false) ){
             drawGlyph(currentTable[localCommand]);    	    
         }
     }
-    if(localCommand >= 0600 && localCommand <= 0677){//shapes 
-        if(!(localCommand == 0207 && editMode == false) ){
+    if(localCommand >= 0o600 && localCommand <= 0o677){//shapes
+        if(!(localCommand == 0o207 && editMode == false) ){
             drawGlyph(currentTable[localCommand]);    	    
         }
     }
-    if(localCommand >= 0500 && localCommand <= 0577){//srcs 
+    if(localCommand >= 0o500 && localCommand <= 0o577){//srcs
         
         var boxes = document.getElementsByTagName("shape");
         var newdatap = document.createElement("p");
@@ -125,12 +125,12 @@ function doTheThing(localCommand){
         //location.href = "index.php?glyph=" + currentTable[parseInt(this.getElementsByClassName("datap")[0].innerHTML,8)];
             location.href = byteCode2string(currentTable[parseInt(this.getElementsByClassName("datap")[0].innerHTML,8)]);
         }
-        doTheThing(0760);
-        doTheThing(localCommand + 01000);
-        doTheThing(0761);        
+        doTheThing(0o760);
+        doTheThing(localCommand + 0o1000);
+        doTheThing(0o761);
         
     }
-    if(localCommand >= 0400 && localCommand <= 0477){//srcs 
+    if(localCommand >= 0o400 && localCommand <= 0o477){//srcs
         var boxes = document.getElementsByTagName("shape");
         var newdatap = document.createElement("p");
         newdatap.className = "datap";
@@ -141,14 +141,14 @@ function doTheThing(localCommand){
             //location.href = "index.php?glyph=" + currentTable[parseInt(this.getElementsByClassName("datap")[0].innerHTML,8)];
             location.href = "index.php?address=" + this.getElementsByClassName("datap")[0].innerHTML;
         }
-        doTheThing(0760);
-        doTheThing(localCommand + 01000);
-        doTheThing(0761);
+        doTheThing(0o760);
+        doTheThing(localCommand + 0o1000);
+        doTheThing(0o761);
     }
 
-    if(localCommand >= 01000 && localCommand <= 01777){//symbol glyphs
+    if(localCommand >= 0o1000 && localCommand <= 0o1777){//symbol glyphs
             drawGlyph(currentTable[localCommand]);    
-            mostRecentSymbolAction = localCommand - 01000;
+            mostRecentSymbolAction = localCommand - 0o1000;
     } 
     <?php
     echo file_get_contents("javascript/actions03xx.txt");
@@ -167,7 +167,7 @@ echo file_get_contents("javascript/topfunctions.txt");
 ?>   
 </script>
 </head>
-<body>
+<body bgcolor="">
 <div id = "stylejsondiv" style = "display:none"><?php
     if(isset($_GET['path'])){
         echo file_get_contents("symbols/".$_GET['path']."json/stylejson.txt");
