@@ -47,7 +47,7 @@ softkeypad.push("0736,0737,0740,0741,0742,0743");
 softkeypad.push("0744,0750,0751,0752,0753,0754");
 softkeypad.push("0755,023,022,010,020,021");
 softkeypad.push("0720,0721,0722,0723,0724,0725");
-softkeypad.push("0760,0761,0224,0612");
+softkeypad.push("0760,0761,0224,0601,0756,0757");
 
 for(var keyrowindex = 0;keyrowindex < softkeypad.length;keyrowindex++){
     var newtr = document.createElement("TR");
