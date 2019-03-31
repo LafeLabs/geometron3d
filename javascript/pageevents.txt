@@ -1,5 +1,5 @@
 
-document.getElementById("actioninput").onkeydown = function(e){
+document.onkeydown = function(e){
     charCode = e.keyCode || e.which;
 
         arrowkey = false;
@@ -54,7 +54,7 @@ document.getElementById("actioninput").onkeydown = function(e){
     
 }
 
-document.getElementById("actioninput").onkeypress = function(a){//action
+document.onkeypress = function(a){//action
     charCode = a.keyCode || a.which;
     /*if(charCode != 010){
         if(parseInt(currentTable[charCode],8) >= 0600){
