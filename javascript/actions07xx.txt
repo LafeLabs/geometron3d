@@ -12,6 +12,10 @@
         beta = 0;
         gamma = 0;
         mostRecentSymbolAction = 01177;
+        quantumStateIndex = 0;//number of states is 2^N, where there are N qubits
+        quantumAngleIndex = 0;//number of angles are 2^N - 1
+        currentTrans = 0.0;
+
     }
     if(localCommand == 0701){
         side3d = unit3d;
@@ -452,19 +456,33 @@
             side3d = side3d*1;
     }
     if(localCommand == 0773){//opacity by current state
-            currentTrans = 1 - angles2mag(currentQuantumAngles.theta,quantumAngleIndex);
+        currentTrans = 1 - angles2mag(currentQuantumAngles.theta,quantumAngleIndex);           
+        
     }
     if(localCommand == 0774){//previous quantum state
-        quantumAngleIndex--;
-        if(quantumAngleIndex < 0){
-            quantumAngleIndex = currentQuantumAngles.theta.length - 1;
+        quantumStateIndex--;
+        if(quantumStateIndex < 0){
+            quantumStateIndex = numberofStates - 1;
+        }
+        if(quantumStateIndex != numberofStates - 1){
+            quantumAngleIndex = quantumStateIndex;
+        }
+        else{
+            quantumAngleIndex = numberofStates - 1;
         }
     }
     if(localCommand == 0775){//next quantum state
-        quantumAngleIndex++;
-        if(quantumAngleIndex > currentQuantumAngles.theta.length - 1){
-            quantumAngleIndex = 0;
+        quantumStateIndex++;
+        if(quantumStateIndex > numberofStates - 1){
+           quantumStateIndex = 0;
         }
+        if(quantumStateIndex != numberofStates - 1){
+            quantumAngleIndex = quantumStateIndex;
+        }
+        else{
+            quantumAngleIndex = numberofStates - 1;
+        }
+
     }
     
 

@@ -123,7 +123,7 @@ document.getElementById("addressinput").onchange = function(){
 document.getElementById("gobutton").onclick = function(){
     quantumAngles =  JSON.parse(document.getElementById("textio").value);
     quantumangleindex = 0;
-    var id = setInterval(frame, 1);
+    var id = setInterval(frame,1);
     function frame(){
       if(quantumangleindex == quantumAngles.length - 1){
         clearInterval(id);

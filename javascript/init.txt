@@ -30,16 +30,24 @@ for(var localt = 0;localt < 100;localt++){
     localangles.phi = [];
     localangles.theta.push(2*Math.PI*localt/100);
     localangles.phi.push(2*Math.PI*localt/10);
-    localangles.theta.push(2*Math.PI*localt/50);
+
+    localangles.theta.push(2*Math.PI*localt/80);
     localangles.phi.push(2*Math.PI*localt/5);
-    localangles.theta.push(2*Math.PI*localt/150);
+    localangles.theta.push(2*Math.PI*localt/130);
     localangles.phi.push(2*Math.PI*localt/15);
 
     quantumAngles.push(localangles);
 }
 currentQuantumAngles = quantumAngles[0];
 
-quantumAngleIndex = 0;
+
+numberofQubits = 2;
+numberofStates = Math.pow(2,numberofQubits);
+
+quantumStateIndex = 0;//number of states is 2^N, where there are N qubits
+quantumAngleIndex = 0;//number of angles are 2^N - 1
+
+
 
 document.getElementById("textio").value = JSON.stringify(quantumAngles,null," ");
 
