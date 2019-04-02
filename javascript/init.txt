@@ -19,14 +19,20 @@ thetaStep3d = Math.PI;
 
 quantumAngles = [];
 
+
 for(var localt = 0;localt < 100;localt++){
     var localangles = {};
     localangles.theta0 = 2*Math.PI*localt/100;
-    localangles.phi = 2*Math.PI*localt/10;
+    localangles.phi0 = 2*Math.PI*localt/10;
+    localangles.theta = [];
+    localangles.phi = [];
+    localangles.theta.push(2*Math.PI*localt/100);
+    localangles.phi.push(2*Math.PI*localt/10);
     quantumAngles.push(localangles);
 }
-
 currentQuantumAngles = quantumAngles[0];
+
+quantumAngleIndex = 0;
 
 document.getElementById("textio").value = JSON.stringify(quantumAngles,null," ");
 
