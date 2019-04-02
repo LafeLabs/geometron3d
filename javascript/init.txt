@@ -30,7 +30,6 @@ for(var localt = 0;localt < 100;localt++){
     localangles.phi = [];
     localangles.theta.push(2*Math.PI*localt/100);
     localangles.phi.push(2*Math.PI*localt/10);
-
     localangles.theta.push(2*Math.PI*localt/50);
     localangles.phi.push(2*Math.PI*localt/5);
     localangles.theta.push(2*Math.PI*localt/150);

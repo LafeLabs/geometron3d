@@ -52,6 +52,22 @@ function spellGlyph(localString){
     }
 }
 
-
+function angles2mag(angles,stateindex){
+    if(stateindex == 0){
+        return Math.cos(angles[0])*Math.cos(angles[0]);
+    }
+    if(stateindex == angles.length - 1){
+        var localmag = 1;
+        for(var index = 0;index < angles.length - 1;index++){
+            localmag *= Math.sin(angles[index]);
+        }
+        return localmag*localmag;
+    }
+    var localmag = Math.cos(angles[stateindex]);
+    for(var index = 0;index < stateindex;index++){
+        localmag *= Math.sin(angles[index]);
+    }
+    return localmag*localmag;
+}
 
 
