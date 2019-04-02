@@ -13,6 +13,10 @@
         gamma = 0;
         mostRecentSymbolAction = 01177;
     }
+    if(localCommand == 0701){
+        side3d = unit3d;
+        currentTrans = 0.0;
+    }
     if(localCommand == 0707){
         drawcursor();
     }
@@ -136,6 +140,7 @@
         news.appendChild(newa);
         var newm = document.createElement("material");
         newm.setAttribute("diffuseColor",solidColor);
+        newm.setAttribute("transparency",currentTrans);
         newa.appendChild(newm);
         var newb = document.createElement("box");
         news.appendChild(newb);
@@ -157,6 +162,7 @@
         news.appendChild(newa);
         var newm = document.createElement("material");
         newm.setAttribute("diffuseColor",solidColor);
+        newm.setAttribute("transparency",currentTrans);
         newa.appendChild(newm);
         var newb = document.createElement("sphere");
         news.appendChild(newb);
@@ -189,6 +195,7 @@
         news.appendChild(newa);
         var newm = document.createElement("material");
         newm.setAttribute("diffuseColor",solidColor);
+        newm.setAttribute("transparency",currentTrans);
         newa.appendChild(newm);
         var newb = document.createElement("cylinder");
         news.appendChild(newb);
@@ -222,6 +229,7 @@
         news.appendChild(newa);
         var newm = document.createElement("material");
         newm.setAttribute("diffuseColor",solidColor);
+        newm.setAttribute("transparency",currentTrans);
         newa.appendChild(newm);
         var newb = document.createElement("cone");
         news.appendChild(newb);
@@ -436,3 +444,30 @@
         doTheThing(0750);
         thetaStep3d = tempanglestep;
     }
+    if(localCommand == 0772){//scale by current state   
+            //there needs to be an action that restores side to unit
+            //and resets nothing else
+            //then this can simply rescale side by the current states amplitude squared or amplitude
+            
+            side3d = side3d*1;
+    }
+    if(localCommand == 0773){//opacity by current state
+            currentTrans = 0.5;
+    }
+    if(localCommand == 0774){//previous quantum state
+        quantumAngleIndex--;
+        if(quantumAngleIndex < 0){
+            quantumAngleIndex = currentQuantumAngles.theta.length - 1;
+        }
+    }
+    if(localCommand == 0775){//next quantum state
+        quantumAngleIndex++;
+        if(quantumAngleIndex > currentQuantumAngles.theta.length - 1){
+            quantumAngleIndex = 0;
+        }
+    }
+    
+
+
+
+    

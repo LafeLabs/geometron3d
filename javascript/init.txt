@@ -17,6 +17,8 @@ solidColor = "1 0 0";
 scale3d = 2;
 thetaStep3d = Math.PI;
 
+currentTrans = 0.0;//0.0 is opaque, 1.0 is transparent, so 1-currentTrans is opacity
+
 quantumAngles = [];
 
 
