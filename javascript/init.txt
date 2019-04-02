@@ -24,12 +24,18 @@ quantumAngles = [];
 
 for(var localt = 0;localt < 100;localt++){
     var localangles = {};
-    localangles.theta0 = 2*Math.PI*localt/100;
-    localangles.phi0 = 2*Math.PI*localt/10;
+//    localangles.theta0 = 2*Math.PI*localt/100;
+ //   localangles.phi0 = 2*Math.PI*localt/10;
     localangles.theta = [];
     localangles.phi = [];
     localangles.theta.push(2*Math.PI*localt/100);
     localangles.phi.push(2*Math.PI*localt/10);
+
+    localangles.theta.push(2*Math.PI*localt/50);
+    localangles.phi.push(2*Math.PI*localt/5);
+    localangles.theta.push(2*Math.PI*localt/150);
+    localangles.phi.push(2*Math.PI*localt/15);
+
     quantumAngles.push(localangles);
 }
 currentQuantumAngles = quantumAngles[0];

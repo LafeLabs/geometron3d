@@ -452,7 +452,9 @@
             side3d = side3d*1;
     }
     if(localCommand == 0773){//opacity by current state
+            
             currentTrans = 0.5;
+            
     }
     if(localCommand == 0774){//previous quantum state
         quantumAngleIndex--;
