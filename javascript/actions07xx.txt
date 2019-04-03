@@ -268,6 +268,8 @@
         news.appendChild(newa);
         var newm = document.createElement("material");
         newm.setAttribute("diffuseColor",solidColor);
+        newm.setAttribute("transparency",currentTrans);
+
         newa.appendChild(newm);
         var newb = document.createElement("text");
         news.appendChild(newb);
@@ -428,6 +430,8 @@
         var newit = document.createElement("ImageTexture");
         var apps = document.getElementsByTagName("appearance");
         var newm = document.createElement("material");
+        newm.setAttribute("transparency",currentTrans);
+
         var oldm = apps[apps.length -1].getElementsByTagName("material")[0];
         apps[apps.length -1].removeChild(oldm);
         apps[apps.length -1].appendChild(newm);
