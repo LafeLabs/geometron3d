@@ -253,7 +253,7 @@ function init(){
 
     controls = document.getElementById("controlTable").getElementsByTagName("input");   
     unit = 100;
-    currentAddress = 0220;
+    currentAddress = 0230;
 
     currentGlyph = currentTable[currentAddress] + ",0207,";
     glyphEditMode = true;
