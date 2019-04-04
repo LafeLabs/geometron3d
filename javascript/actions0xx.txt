@@ -180,7 +180,15 @@
         arrowkey = true;
         document.getElementById("addressinput").value = "0" + currentAddress.toString(8);
     }
-    
+    if(localCommand == 024){
+        unit3d *= 0.5;
+        redraw();
+    }
+    if(localCommand == 025){
+        unit3d *= 2;
+        redraw();
+    }
+
     if(localCommand == 030){
 //<page030>
         y0 -= viewStep; 
