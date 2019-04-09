@@ -27,6 +27,9 @@
 </table>
 
 <canvas id = "mainCanvas"></canvas>
+<div id = "panelonoff">
+<img src = "mapicons/panelonoff.svg"/>
+</div>
 <div id = "spellbox">
     <input id = "spellinput"/>
     <canvas id = "spellcanvas"></canvas>
@@ -95,6 +98,22 @@
     top:100px;
     border:solid;
     background-color:white;
+}
+#panelonoff img{
+    width:100%;
+}
+#panelonoff{
+    position:absolute;
+    top:200px;
+    right:0px;
+    width:80px;
+    cursor:pointer;
+}
+#panelonoff:hover{
+    background-color:green;
+}
+#panelonoff:active{
+    background-color:yellow;
 }
 #softkeypad{
     position:absolute;

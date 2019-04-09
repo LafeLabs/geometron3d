@@ -136,4 +136,13 @@ document.getElementById("gobutton").onclick = function(){
     
 }
 
+document.getElementById("panelonoff").onclick = function(){
+    if(panelvisibile){
+        document.getElementById("softkeypad").style.display = "none";
+    }
+    else{
+        document.getElementById("softkeypad").style.display = "block";
+    }
+    panelvisibile = !panelvisibile;
+}
 

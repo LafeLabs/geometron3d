@@ -17,7 +17,8 @@
 		"files":[
 			"editor.svg",
 			"geometron3d.svg",
-			"hypercube.svg"
+			"hypercube.svg",
+			"panelonoff.svg"
 		]
 	},
 	{
