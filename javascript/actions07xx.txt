@@ -488,7 +488,13 @@
         }
 
     }
-    
+    if(localCommand == 0776){
+        //drop anchor
+        
+    }
+    if(localCommand == 0777){
+        //goto anchor
+    }
 
 
 
