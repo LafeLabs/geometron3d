@@ -56,6 +56,10 @@ quantumAngleIndex = 0;//number of angles are 2^N - 1
 
 document.getElementById("textio").value = JSON.stringify(quantumAngles,null," ");
 
+if(document.getElementById("qjsondatadiv").innerHTML.length > 1){
+    document.getElementById("textio").value = document.getElementById("qjsondatadiv").innerHTML;
+}
+
 transformIndex = 0;
 currentTable = []; 
 for(var index = 0;index < 01777;index ++){

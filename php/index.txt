@@ -220,6 +220,11 @@ if(isset($_GET['url'])){
         echo file_get_contents($_GET['url']);
     }
 }?></div>
+<div id = "qjsondatadiv" style = "display:none"><?php
+if(isset($_GET['qjson'])){
+        echo  file_get_contents($_GET['qjson']);
+}
+?></div>
 
 <?php
     echo file_get_contents("html/index.txt");
